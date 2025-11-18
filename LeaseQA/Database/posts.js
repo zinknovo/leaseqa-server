@@ -1,0 +1,56 @@
+const posts = [
+  {
+    _id: "post-rent-visibility",
+    summary: "Can my landlord raise rent halfway through a fixed lease?",
+    details:
+      "<p>The lease I signed runs through next June but the landlord emailed a rent increase that starts in January. The contract only mentions annual increases. Is this enforceable and what should I reference when I push back?</p>",
+    postType: "question",
+    visibility: "class",
+    folders: ["rent_increase", "lease_basics"],
+    authorId: "user-tenant-1",
+    lawyerOnly: false,
+    fromAIReviewId: "review-rent-clause",
+    urgency: "high",
+    viewCount: 72,
+    isResolved: false,
+    createdAt: "2024-10-01T15:00:00.000Z",
+    updatedAt: "2024-10-02T10:21:00.000Z",
+    lastActivityAt: "2024-10-05T17:35:00.000Z",
+  },
+  {
+    _id: "post-mold-options",
+    summary: "Landlord ignoring persistent mold on bathroom ceiling",
+    details:
+      "<p>We've reported mold growth twice but maintenance only paints over it. Need to know what counts as a reasonable timeline for a licensed remediation in Massachusetts and whether withholding rent is ever appropriate.</p>",
+    postType: "question",
+    visibility: "class",
+    folders: ["maintenance"],
+    authorId: "user-tenant-1",
+    lawyerOnly: false,
+    urgency: "medium",
+    viewCount: 41,
+    isResolved: true,
+    createdAt: "2024-09-21T11:00:00.000Z",
+    updatedAt: "2024-09-22T09:12:00.000Z",
+    lastActivityAt: "2024-09-24T16:45:00.000Z",
+  },
+  {
+    _id: "post-admin-deposit-policy",
+    summary: "Reminder: security deposit deductions must be itemized",
+    details:
+      "<p>Sharing the Attorney General's checklist plus our internal template for move-out inspection photos. Please attach documentation if your deduction dispute escalates.</p>",
+    postType: "announcement",
+    visibility: "class",
+    folders: ["security_deposit"],
+    authorId: "user-admin-1",
+    lawyerOnly: false,
+    urgency: "low",
+    viewCount: 128,
+    isResolved: false,
+    createdAt: "2024-09-10T09:00:00.000Z",
+    updatedAt: "2024-09-10T09:00:00.000Z",
+    lastActivityAt: "2024-09-12T13:23:00.000Z",
+  },
+];
+
+export default posts;
