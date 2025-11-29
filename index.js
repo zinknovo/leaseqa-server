@@ -16,32 +16,32 @@ import moderationRoutes from "./LeaseQA/Moderation/routes.js";
 const app = express();
 
 app.use(
-  cors({
-    origin: process.env.CLIENT_URL || "http://localhost:3000",
-    credentials: true,
-  })
+    cors({
+        origin: process.env.CLIENT_URL || "http://localhost:3000",
+        credentials: true,
+    })
 );
 
 const sessionOptions = {
-  secret: process.env.SESSION_SECRET || "leaseqa-secret",
-  resave: false,
-  saveUninitialized: false,
+    secret: process.env.SESSION_SECRET || "leaseqa-secret",
+    resave: false,
+    saveUninitialized: false,
 };
 
 if (process.env.SERVER_ENV && process.env.SERVER_ENV !== "development") {
-  sessionOptions.proxy = true;
-  sessionOptions.cookie = {
-    sameSite: "none",
-    secure: true,
-    domain: process.env.SERVER_URL,
-  };
+    sessionOptions.proxy = true;
+    sessionOptions.cookie = {
+        sameSite: "none",
+        secure: true,
+        domain: process.env.SERVER_URL,
+    };
 }
 
 app.use(session(sessionOptions));
 app.use(express.json());
 
 app.get("/api/health", (_req, res) => {
-  res.json({ ok: true, timestamp: new Date().toISOString() });
+    res.json({ok: true, timestamp: new Date().toISOString()});
 });
 
 app.use("/api/auth", authRoutes);
@@ -56,5 +56,5 @@ app.use("/api/moderation", moderationRoutes);
 
 const port = process.env.PORT || 4050;
 app.listen(port, () => {
-  console.log(`LeaseQA server listening on port ${port}`);
+    console.log(`LeaseQA server listening on port ${port}`);
 });

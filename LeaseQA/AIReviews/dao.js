@@ -1,21 +1,25 @@
-import Database from "../Database/index.js";
-import { newId } from "../utils/ids.js";
+import model from "./model.js";
 
 export const listReviewsForUser = (userId) =>
-  Database.aiReviews.filter((review) => review.userId === userId);
+    model.find({userId});
 
-export const findReviewById = (id) => Database.aiReviews.find((review) => review._id === id);
+export const findReviewById = (id) =>
+    model.findById(id);
 
 export const createReview = (payload) => {
-  const review = {
-    _id: newId("review"),
-    userId: payload.userId,
-    contractType: payload.contractType || null,
-    contractTextPreview: payload.contractTextPreview?.slice(0, 280) || "",
-    aiResponse: payload.aiResponse,
-    relatedPostId: payload.relatedPostId || null,
-    createdAt: new Date().toISOString(),
-  };
-  Database.aiReviews = [review, ...Database.aiReviews];
-  return review;
+    const review = {
+        userId: payload.userId,
+        contractType: payload.contractType || null,
+        contractText: payload.contractText,
+        contractFileUrl: payload.contractFileUrl || null,
+        aiResponse: payload.aiResponse,
+        relatedPostId: payload.relatedPostId || null,
+    };
+    return model.create(review);
 };
+
+export const updateReview = (id, data) =>
+    model.findByIdAndUpdate(id, data, {new: true});
+
+export const deleteReview = (id) =>
+    model.findByIdAndDelete(id);
