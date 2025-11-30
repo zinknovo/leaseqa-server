@@ -1,43 +1,50 @@
-import Database from "../Database/index.js";
+import model from "./model.js";
 import bcrypt from "bcryptjs";
-import { newId } from "../utils/ids.js";
 
-export const findAllUsers = () => Database.users;
+export const findAllUsers = () =>
+    model.find();
 
-export const findUserById = (id) => Database.users.find((user) => user._id === id);
+export const findUserById = (id) =>
+    model.findById(id);
 
 export const findUserByEmail = (email) =>
-  Database.users.find((user) => user.email.toLowerCase() === email.toLowerCase());
+    model.findOne({email});
 
-export const createUser = (payload) => {
-  const now = new Date().toISOString();
-  const newUser = {
-    _id: newId("user"),
-    username: payload.username,
-    email: payload.email,
-    password: bcrypt.hashSync(payload.password, 10),
-    role: payload.role || "tenant",
-    lawyerVerification: payload.lawyerVerification || null,
-    profile: payload.profile || {},
-    createdAt: now,
-    updatedAt: now,
-    banned: false,
-  };
-  Database.users = [...Database.users, newUser];
-  return newUser;
-};
+export const createUser = (payload) =>
+    model.create({
+        username: payload.username,
+        email: payload.email,
+        hashedPassword: bcrypt.hashSync(payload.password, 10),
+        role: payload.role || "tenant",
+        lawyerVerification: payload.lawyerVerification || null,
+        banned: false,
+    });
 
-export const updateUser = (userId, updates) => {
-  Database.users = Database.users.map((user) =>
-    user._id === userId ? { ...user, ...updates, updatedAt: new Date().toISOString() } : user
-  );
-  return findUserById(userId);
-};
+export const updateUser = (userId, updates) =>
+    model.findByIdAndUpdate(userId, updates, {new: true});
+
+export const deleteUser = (userId) =>
+    model.findByIdAndDelete(userId);
+
+export const verifyPassword = (plainPassword, hashedPassword) =>
+    bcrypt.compareSync(plainPassword, hashedPassword);
+
+export const verifyLawyer = (userId) =>
+    model.findByIdAndUpdate(
+        userId,
+        {"lawyerVerification.verifiedAt": new Date()},
+        {new: true}
+    );
+
+export const banUser = (userId) =>
+    model.findByIdAndUpdate(userId, {banned: true}, {new: true});
+
+export const unbanUser = (userId) =>
+    model.findByIdAndUpdate(userId, {banned: false}, {new: true});
 
 export const sanitizeUser = (user) => {
-  if (!user) {
-    return null;
-  }
-  const { password, ...rest } = user;
-  return rest;
+    if (!user) return null;
+    const userObj = user.toObject ? user.toObject() : user;
+    const {hashedPassword, ...rest} = userObj;
+    return rest;
 };

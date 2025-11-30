@@ -1,0 +1,172 @@
+[
+  {
+    "_id": "discussion-rent-followup",
+    "postId": "post-rent-visibility",
+    "parentId": null,
+    "authorId": "user-tenant-1",
+    "content": "If the landlord refuses to sign the addendum do I have grounds to terminate early without penalty?",
+    "isResolved": false,
+    "createdAt": "2024-10-04T13:22:00.000Z",
+    "updatedAt": "2024-10-04T13:22:00.000Z"
+  },
+  {
+    "_id": "discussion-rent-lawyer-reply",
+    "postId": "post-rent-visibility",
+    "parentId": "discussion-rent-followup",
+    "authorId": "user-lawyer-1",
+    "content": "Document the refusal and propose mutual termination with a pro-rated refund. Massachusetts law supports liquidated damages only if outlined in the lease.",
+    "isResolved": false,
+    "createdAt": "2024-10-04T15:40:00.000Z",
+    "updatedAt": "2024-10-04T15:40:00.000Z"
+  },
+  {
+    "_id": "discussion-deposit-question",
+    "postId": "post-deposit-question",
+    "parentId": null,
+    "authorId": "user-tenant-2",
+    "content": "How long does the Attorney General's office typically take to respond to complaints?",
+    "isResolved": false,
+    "createdAt": "2024-10-08T09:30:00.000Z",
+    "updatedAt": "2024-10-08T09:30:00.000Z"
+  },
+  {
+    "_id": "discussion-deposit-reply",
+    "postId": "post-deposit-question",
+    "parentId": "discussion-deposit-question",
+    "authorId": "user-tenant-3",
+    "content": "Mine took about 3 weeks for initial contact, then another month for resolution. Keep following up every 2 weeks.",
+    "isResolved": true,
+    "createdAt": "2024-10-08T14:15:00.000Z",
+    "updatedAt": "2024-10-08T14:15:00.000Z"
+  },
+  {
+    "_id": "discussion-maintenance-timeline",
+    "postId": "post-maintenance-issue",
+    "parentId": null,
+    "authorId": "user-tenant-3",
+    "content": "What if the landlord claims they can't find a contractor? Is that a valid excuse to delay repairs?",
+    "isResolved": false,
+    "createdAt": "2024-10-18T10:00:00.000Z",
+    "updatedAt": "2024-10-18T10:00:00.000Z"
+  },
+  {
+    "_id": "discussion-maintenance-lawyer-reply",
+    "postId": "post-maintenance-issue",
+    "parentId": "discussion-maintenance-timeline",
+    "authorId": "user-lawyer-2",
+    "content": "No. The landlord's difficulty finding contractors doesn't suspend their legal obligation. After 14 days, you can hire your own contractor and deduct from rent. Keep all receipts.",
+    "isResolved": false,
+    "createdAt": "2024-10-18T16:30:00.000Z",
+    "updatedAt": "2024-10-18T16:30:00.000Z"
+  },
+  {
+    "_id": "discussion-maintenance-followup",
+    "postId": "post-maintenance-issue",
+    "parentId": "discussion-maintenance-lawyer-reply",
+    "authorId": "user-tenant-3",
+    "content": "Is there a maximum amount I can deduct? My heating system repair estimate is $2,500.",
+    "isResolved": false,
+    "createdAt": "2024-10-19T08:45:00.000Z",
+    "updatedAt": "2024-10-19T08:45:00.000Z"
+  },
+  {
+    "_id": "discussion-maintenance-final",
+    "postId": "post-maintenance-issue",
+    "parentId": "discussion-maintenance-followup",
+    "authorId": "user-lawyer-2",
+    "content": "Massachusetts doesn't set a specific cap, but the repair must be reasonable and necessary. Get 2-3 quotes and choose a licensed contractor. Document that you gave the landlord proper notice and opportunity to repair first.",
+    "isResolved": true,
+    "createdAt": "2024-10-19T11:20:00.000Z",
+    "updatedAt": "2024-10-19T11:20:00.000Z"
+  },
+  {
+    "_id": "discussion-mold-inspection",
+    "postId": "post-mold-options",
+    "parentId": null,
+    "authorId": "user-tenant-4",
+    "content": "Did you have to pay for the Board of Health inspection or is it free?",
+    "isResolved": false,
+    "createdAt": "2024-09-23T09:00:00.000Z",
+    "updatedAt": "2024-09-23T09:00:00.000Z"
+  },
+  {
+    "_id": "discussion-mold-reply",
+    "postId": "post-mold-options",
+    "parentId": "discussion-mold-inspection",
+    "authorId": "user-tenant-1",
+    "content": "Completely free! Just call your local Board of Health and request a housing inspection. They're required to investigate within a few days.",
+    "isResolved": true,
+    "createdAt": "2024-09-23T11:30:00.000Z",
+    "updatedAt": "2024-09-23T11:30:00.000Z"
+  },
+  {
+    "_id": "discussion-eviction-timeline",
+    "postId": "post-eviction-notice",
+    "parentId": null,
+    "authorId": "user-tenant-5",
+    "content": "How long does the entire eviction court process usually take in Boston?",
+    "isResolved": false,
+    "createdAt": "2024-11-10T14:00:00.000Z",
+    "updatedAt": "2024-11-10T14:00:00.000Z"
+  },
+  {
+    "_id": "discussion-eviction-lawyer-reply",
+    "postId": "post-eviction-notice",
+    "parentId": "discussion-eviction-timeline",
+    "authorId": "user-lawyer-1",
+    "content": "Currently 3-6 months from notice to actual move-out order, sometimes longer. The court backlog works in tenants' favor. Use this time to save money and find alternative housing if needed.",
+    "isResolved": false,
+    "createdAt": "2024-11-10T17:45:00.000Z",
+    "updatedAt": "2024-11-10T17:45:00.000Z"
+  },
+  {
+    "_id": "discussion-eviction-community",
+    "postId": "post-eviction-notice",
+    "parentId": "discussion-eviction-lawyer-reply",
+    "authorId": "user-tenant-2",
+    "content": "Also look into RAFT (Residential Assistance for Families in Transition) - they can help with back rent and might stop the eviction entirely.",
+    "isResolved": true,
+    "createdAt": "2024-11-11T09:15:00.000Z",
+    "updatedAt": "2024-11-11T09:15:00.000Z"
+  },
+  {
+    "_id": "discussion-renewal-negotiate",
+    "postId": "post-renewal-concern",
+    "parentId": null,
+    "authorId": "user-tenant-1",
+    "content": "Has anyone successfully negotiated down the notice period? What argument worked?",
+    "isResolved": false,
+    "createdAt": "2024-11-08T10:30:00.000Z",
+    "updatedAt": "2024-11-08T10:30:00.000Z"
+  },
+  {
+    "_id": "discussion-renewal-reply",
+    "postId": "post-renewal-concern",
+    "parentId": "discussion-renewal-negotiate",
+    "authorId": "user-tenant-4",
+    "content": "I pointed out that 90 days is unusual for Boston and offered to sign a 2-year lease in exchange for 45-day notice. They agreed! Landlords want stability too.",
+    "isResolved": true,
+    "createdAt": "2024-11-08T15:00:00.000Z",
+    "updatedAt": "2024-11-08T15:00:00.000Z"
+  },
+  {
+    "_id": "discussion-roommate-lease",
+    "postId": "post-roommate-dispute",
+    "parentId": null,
+    "authorId": "user-tenant-3",
+    "content": "What if only one roommate is on the lease? Does that change the liability situation?",
+    "isResolved": false,
+    "createdAt": "2024-11-14T11:00:00.000Z",
+    "updatedAt": "2024-11-14T11:00:00.000Z"
+  },
+  {
+    "_id": "discussion-roommate-lawyer",
+    "postId": "post-roommate-dispute",
+    "parentId": "discussion-roommate-lease",
+    "authorId": "user-lawyer-2",
+    "content": "Yes, significantly. The person on the lease is solely responsible to the landlord. The other person is essentially a subtenant. The leaseholder can pursue the subtenant for their share, but the landlord only has a legal relationship with whoever signed.",
+    "isResolved": true,
+    "createdAt": "2024-11-14T14:30:00.000Z",
+    "updatedAt": "2024-11-14T14:30:00.000Z"
+  }
+]

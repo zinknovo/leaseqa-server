@@ -1,0 +1,269 @@
+[
+  {
+    "_id": "review-rent-clause",
+    "userId": "user-tenant-1",
+    "contractType": "12-month apartment lease",
+    "contractTextPreview": "Landlord reserves the right to adjust rent to reflect fair market value on sixty (60) days' notice.",
+    "aiResponse": {
+      "summary": "Clause allows mid-term rent increase without tenant consent. It conflicts with fixed-term protections.",
+      "highRisk": [
+        "Landlord can raise rent after 60 days even if lease has months remaining.",
+        "No explicit cap on the adjustment or reference to CPI/state guidelines."
+      ],
+      "mediumRisk": [
+        "No carve-out for hardship or relocation costs if tenant declines new rate."
+      ],
+      "lowRisk": [
+        "Notice period is defined but lacks delivery method requirements."
+      ],
+      "recommendations": [
+        "Request addendum limiting increases to renewal period only.",
+        "Add requirement for certified mail notice and mutually signed agreement.",
+        "Document the landlord promise in writing before moving in."
+      ]
+    },
+    "createdAt": "2024-09-30T17:12:00.000Z",
+    "relatedPostId": "post-rent-visibility"
+  },
+  {
+    "_id": "review-security-deposit",
+    "userId": "user-tenant-2",
+    "contractType": "12-month apartment lease",
+    "contractTextPreview": "Tenant shall pay a security deposit equal to two months' rent. Deposit may be used for any damages, cleaning, or unpaid rent at landlord's sole discretion.",
+    "aiResponse": {
+      "summary": "Security deposit exceeds Massachusetts legal limit and gives landlord excessive discretion over deductions.",
+      "highRisk": [
+        "Massachusetts law limits security deposits to one month's rent maximum.",
+        "Landlord's sole discretion clause may violate tenant protection laws."
+      ],
+      "mediumRisk": [
+        "No mention of required itemized statement of deductions within 30 days.",
+        "Missing information about interest payments on deposit."
+      ],
+      "lowRisk": [
+        "No specified timeline for deposit return after move-out."
+      ],
+      "recommendations": [
+        "Request reduction to one month's rent to comply with MA law.",
+        "Add clause requiring itemized deduction list within 30 days.",
+        "Request written confirmation of deposit account and annual interest."
+      ]
+    },
+    "createdAt": "2024-10-05T09:30:00.000Z",
+    "relatedPostId": "post-deposit-question"
+  },
+  {
+    "_id": "review-eviction-clause",
+    "userId": "user-tenant-1",
+    "contractType": "Month-to-month rental agreement",
+    "contractTextPreview": "Landlord may terminate this agreement immediately if tenant violates any term. Tenant waives right to cure period.",
+    "aiResponse": {
+      "summary": "Eviction clause attempts to waive tenant's legal right to notice and cure period, which is unenforceable in Massachusetts.",
+      "highRisk": [
+        "Immediate termination without notice violates MA tenant protection laws.",
+        "Waiver of cure period is likely unenforceable but signals aggressive landlord."
+      ],
+      "mediumRisk": [
+        "No definition of what constitutes a violation.",
+        "Missing required 14-day or 30-day notice periods."
+      ],
+      "lowRisk": [
+        "Agreement type is month-to-month which offers flexibility."
+      ],
+      "recommendations": [
+        "Strike the immediate termination and waiver language.",
+        "Add standard 30-day notice requirement for both parties.",
+        "Request clear definition of lease violations."
+      ]
+    },
+    "createdAt": "2024-10-10T14:45:00.000Z",
+    "relatedPostId": null
+  },
+  {
+    "_id": "review-maintenance-clause",
+    "userId": "user-tenant-3",
+    "contractType": "12-month apartment lease",
+    "contractTextPreview": "Tenant is responsible for all repairs and maintenance of the premises including plumbing, electrical, and HVAC systems.",
+    "aiResponse": {
+      "summary": "Clause improperly shifts landlord's legal maintenance obligations to tenant. This violates MA habitability requirements.",
+      "highRisk": [
+        "Landlords are legally required to maintain plumbing, electrical, and heating systems.",
+        "Clause attempts to waive implied warranty of habitability."
+      ],
+      "mediumRisk": [
+        "No distinction between normal wear and tenant-caused damage.",
+        "Missing emergency repair procedures and contact information."
+      ],
+      "lowRisk": [
+        "Minor maintenance like changing light bulbs is reasonable for tenant."
+      ],
+      "recommendations": [
+        "Strike language shifting major system maintenance to tenant.",
+        "Add clause specifying landlord responsibility for habitability items.",
+        "Request 24-hour emergency maintenance contact."
+      ]
+    },
+    "createdAt": "2024-10-15T11:20:00.000Z",
+    "relatedPostId": "post-maintenance-issue"
+  },
+  {
+    "_id": "review-sublease-restriction",
+    "userId": "user-tenant-2",
+    "contractType": "12-month apartment lease",
+    "contractTextPreview": "Subletting is strictly prohibited. Any attempt to sublet will result in immediate lease termination and forfeiture of security deposit.",
+    "aiResponse": {
+      "summary": "Sublease restriction is overly punitive. Forfeiture of deposit for subletting attempt may be unenforceable.",
+      "highRisk": [
+        "Automatic deposit forfeiture is likely unenforceable as a penalty clause.",
+        "Immediate termination without cure period violates tenant rights."
+      ],
+      "mediumRisk": [
+        "No provision for landlord consent to sublet in special circumstances.",
+        "No distinction between short-term guests and actual subletting."
+      ],
+      "lowRisk": [
+        "Sublease restrictions themselves are generally enforceable."
+      ],
+      "recommendations": [
+        "Request modification to allow subletting with landlord's written consent.",
+        "Strike deposit forfeiture language.",
+        "Add definition distinguishing guests from subtenants."
+      ]
+    },
+    "createdAt": "2024-10-20T16:00:00.000Z",
+    "relatedPostId": null
+  },
+  {
+    "_id": "review-utility-clause",
+    "userId": "user-tenant-4",
+    "contractType": "12-month apartment lease",
+    "contractTextPreview": "Tenant shall pay a monthly utility fee of $200 in addition to rent. This fee is non-refundable and not based on actual usage.",
+    "aiResponse": {
+      "summary": "Flat utility fee disconnected from actual usage may be unfair. Tenant has no way to reduce costs through conservation.",
+      "highRisk": [
+        "No transparency on how $200 fee was calculated.",
+        "Non-refundable fee for utilities not actually used could be challenged."
+      ],
+      "mediumRisk": [
+        "No provision for fee adjustment if utility rates change.",
+        "Missing information about which utilities are covered."
+      ],
+      "lowRisk": [
+        "Flat fee provides predictable monthly costs."
+      ],
+      "recommendations": [
+        "Request itemized breakdown of utility fee calculation.",
+        "Ask for actual usage billing or submeter installation.",
+        "Clarify exactly which utilities are included in the fee."
+      ]
+    },
+    "createdAt": "2024-10-25T08:15:00.000Z",
+    "relatedPostId": "post-utility-question"
+  },
+  {
+    "_id": "review-pet-policy",
+    "userId": "user-tenant-5",
+    "contractType": "12-month apartment lease",
+    "contractTextPreview": "No pets allowed. Pet deposit of $500 non-refundable. Violation results in $50 per day fine until pet is removed.",
+    "aiResponse": {
+      "summary": "Pet policy contains contradictory terms and potentially excessive penalties.",
+      "highRisk": [
+        "Policy says no pets but also mentions pet deposit - contradictory.",
+        "$50 daily fine may be unenforceable as an excessive penalty."
+      ],
+      "mediumRisk": [
+        "No exception for service animals or emotional support animals as required by law.",
+        "Non-refundable pet deposit may violate MA security deposit laws."
+      ],
+      "lowRisk": [
+        "Pet restrictions themselves are generally enforceable."
+      ],
+      "recommendations": [
+        "Clarify whether pets are allowed with deposit or prohibited entirely.",
+        "Add required exception for service and emotional support animals.",
+        "Request pet deposit be refundable and counted toward deposit limit."
+      ]
+    },
+    "createdAt": "2024-11-01T13:30:00.000Z",
+    "relatedPostId": null
+  },
+  {
+    "_id": "review-lease-renewal",
+    "userId": "user-tenant-1",
+    "contractType": "12-month apartment lease",
+    "contractTextPreview": "Lease automatically renews for successive 12-month terms unless tenant provides 90 days written notice. Rent may increase up to 15% upon renewal.",
+    "aiResponse": {
+      "summary": "Auto-renewal with long notice period and large potential rent increase creates risk of being locked in at higher rate.",
+      "highRisk": [
+        "15% rent increase cap is very high compared to typical 3-5% increases.",
+        "90-day notice requirement is longer than standard 30-60 days."
+      ],
+      "mediumRisk": [
+        "Auto-renewal may catch tenant off guard if not calendared.",
+        "No requirement for landlord to notify tenant before renewal."
+      ],
+      "lowRisk": [
+        "12-month renewal term provides housing stability."
+      ],
+      "recommendations": [
+        "Negotiate shorter notice period of 30-60 days.",
+        "Request rent increase cap of 5% or tied to CPI.",
+        "Add requirement for landlord reminder notice 120 days before renewal."
+      ]
+    },
+    "createdAt": "2024-11-05T10:45:00.000Z",
+    "relatedPostId": "post-renewal-concern"
+  },
+  {
+    "_id": "review-entry-clause",
+    "userId": "user-tenant-3",
+    "contractType": "12-month apartment lease",
+    "contractTextPreview": "Landlord may enter premises at any time for inspection, repairs, or showing to prospective tenants without prior notice.",
+    "aiResponse": {
+      "summary": "Entry clause violates Massachusetts law requiring reasonable notice before landlord entry except in emergencies.",
+      "highRisk": [
+        "MA law requires reasonable notice (typically 24 hours) before entry.",
+        "Entry at any time without notice violates tenant's right to quiet enjoyment."
+      ],
+      "mediumRisk": [
+        "No distinction between emergency and non-emergency entry.",
+        "Showing to prospective tenants should be limited to final months of lease."
+      ],
+      "lowRisk": [
+        "Landlord does have legitimate reasons to occasionally enter."
+      ],
+      "recommendations": [
+        "Require 24-48 hour written notice for non-emergency entry.",
+        "Limit showing times to reasonable hours in final 60 days of lease.",
+        "Define what constitutes an emergency allowing immediate entry."
+      ]
+    },
+    "createdAt": "2024-11-10T15:20:00.000Z",
+    "relatedPostId": null
+  },
+  {
+    "_id": "review-standard-lease",
+    "userId": "user-tenant-4",
+    "contractType": "12-month apartment lease",
+    "contractTextPreview": "Standard residential lease agreement. Rent due on first of month. Security deposit equal to one month rent held in escrow. 30-day notice required for termination.",
+    "aiResponse": {
+      "summary": "This is a fairly standard lease with common terms that comply with Massachusetts rental laws.",
+      "highRisk": [],
+      "mediumRisk": [
+        "Should specify grace period for rent payment before late fees apply.",
+        "Missing information about where security deposit is held."
+      ],
+      "lowRisk": [
+        "Could add more detail about maintenance request procedures.",
+        "Might benefit from clearer move-out inspection process."
+      ],
+      "recommendations": [
+        "Request 5-day grace period for rent payment.",
+        "Ask for bank name and account info for security deposit.",
+        "Add move-out checklist to avoid deposit disputes."
+      ]
+    },
+    "createdAt": "2024-11-15T09:00:00.000Z",
+    "relatedPostId": null
+  }
+]
