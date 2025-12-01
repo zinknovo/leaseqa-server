@@ -1,22 +1,31 @@
-import Database from "../Database/index.js";
+import User from "../Users/model.js";
+import Post from "../Posts/model.js";
+import Answer from "../Answers/model.js";
 
-export const overview = () => {
-  const unanswered = Database.posts.filter(
-    (post) => !Database.answers.some((answer) => answer.postId === post._id)
-  ).length;
-  const lawyerResponses = Database.answers.filter(
-    (answer) => answer.answerType === "lawyer_opinion"
-  ).length;
-  const tenantResponses = Database.answers.filter(
-    (answer) => answer.answerType === "community_answer"
-  ).length;
+export const overview = async () => {
+    const totalPosts = await Post.countDocuments();
+    const unreadPosts = await Post.countDocuments({ isResolved: false });
 
-  return {
-    unreadPosts: Database.posts.filter((post) => !post.isResolved).length,
-    unansweredPosts: unanswered,
-    totalPosts: Database.posts.length,
-    lawyerResponses,
-    tenantResponses,
-    enrolledUsers: Database.users.length,
-  };
+    const postsWithAnswers = await Answer.distinct("postId");
+    const unansweredPosts = await Post.countDocuments({
+        _id: { $nin: postsWithAnswers }
+    });
+
+    const lawyerResponses = await Answer.countDocuments({
+        answerType: "lawyer_opinion"
+    });
+    const tenantResponses = await Answer.countDocuments({
+        answerType: "community_answer"
+    });
+
+    const enrolledUsers = await User.countDocuments();
+
+    return {
+        unreadPosts,
+        unansweredPosts,
+        totalPosts,
+        lawyerResponses,
+        tenantResponses,
+        enrolledUsers,
+    };
 };

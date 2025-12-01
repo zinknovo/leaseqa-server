@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import session from "express-session";
+import mongoose from "mongoose";
 
 import authRoutes from "./LeaseQA/Auth/routes.js";
 import userRoutes from "./LeaseQA/Users/routes.js";
@@ -15,13 +16,23 @@ import moderationRoutes from "./LeaseQA/Moderation/routes.js";
 
 const app = express();
 
+const connectDB = async () => {
+    try {
+        await mongoose.connect(process.env.DATABASE_CONNECTION_STRING);
+        console.log("Connected to MongoDB");
+    } catch (error) {
+        console.error("MongoDB connection error:", error);
+        process.exit(1);
+    }
+};
+connectDB();
+
 app.use(
     cors({
         origin: process.env.CLIENT_URL || "http://localhost:3000",
         credentials: true,
     })
 );
-
 const sessionOptions = {
     secret: process.env.SESSION_SECRET || "leaseqa-secret",
     resave: false,
@@ -38,8 +49,8 @@ if (process.env.SERVER_ENV && process.env.SERVER_ENV !== "development") {
 }
 
 app.use(session(sessionOptions));
-app.use(express.json());
 
+app.use(express.json());
 app.get("/api/health", (_req, res) => {
     res.json({ok: true, timestamp: new Date().toISOString()});
 });
