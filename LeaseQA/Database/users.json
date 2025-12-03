@@ -1,121 +1,82 @@
 [
   {
-    "_id": "user-tenant-1",
     "username": "Casey Tenant",
     "email": "casey@leaseqa.dev",
-    "password": "$2a$10$rHYvPEzJGdXqEqGh1Y6ePOQqYqYqYqYqYqYqYqYqYqYqYqYqYqYqY",
+    "hashedPassword": "$2a$10$rHYvPEzJGdXqEqGh1Y6ePOQqYqYqYqYqYqYqYqYqYqYqYqYqYqYqY",
     "role": "tenant",
-    "profile": {
-      "location": "Boston, MA",
-      "preferredLanguage": "en"
-    },
     "banned": false,
     "createdAt": "2024-09-01T10:00:00.000Z",
     "updatedAt": "2024-09-01T10:00:00.000Z"
   },
   {
-    "_id": "user-tenant-2",
     "username": "Jordan Renter",
     "email": "jordan@leaseqa.dev",
-    "password": "$2a$10$sIYvQFaKHeYrFrHi2Z7fPPRrRrRrRrRrRrRrRrRrRrRrRrRrRrRrR",
+    "hashedPassword": "$2a$10$sIYvQFaKHeYrFrHi2Z7fPPRrRrRrRrRrRrRrRrRrRrRrRrRrRrRrR",
     "role": "tenant",
-    "profile": {
-      "location": "Allston, MA",
-      "preferredLanguage": "en"
-    },
     "banned": false,
     "createdAt": "2024-09-05T14:30:00.000Z",
     "updatedAt": "2024-09-05T14:30:00.000Z"
   },
   {
-    "_id": "user-tenant-3",
     "username": "Sam Subletter",
     "email": "sam@leaseqa.dev",
-    "password": "$2a$10$tJZwRGbLIfZsGsIj3A8gQQSsSsSsSsSsSsSsSsSsSsSsSsSsSsSsS",
+    "hashedPassword": "$2a$10$tJZwRGbLIfZsGsIj3A8gQQSsSsSsSsSsSsSsSsSsSsSsSsSsSsSsS",
     "role": "tenant",
-    "profile": {
-      "location": "Brookline, MA",
-      "preferredLanguage": "en"
-    },
     "banned": false,
     "createdAt": "2024-09-10T09:00:00.000Z",
     "updatedAt": "2024-09-10T09:00:00.000Z"
   },
   {
-    "_id": "user-tenant-4",
     "username": "Alex Apartment",
     "email": "alex@leaseqa.dev",
-    "password": "$2a$10$uKAxSHcMJgAtHtJk4B9hRRTtTtTtTtTtTtTtTtTtTtTtTtTtTtTtT",
+    "hashedPassword": "$2a$10$uKAxSHcMJgAtHtJk4B9hRRTtTtTtTtTtTtTtTtTtTtTtTtTtTtTtT",
     "role": "tenant",
-    "profile": {
-      "location": "Somerville, MA",
-      "preferredLanguage": "en"
-    },
     "banned": false,
     "createdAt": "2024-09-15T11:20:00.000Z",
     "updatedAt": "2024-09-15T11:20:00.000Z"
   },
   {
-    "_id": "user-tenant-5",
     "username": "Riley Resident",
     "email": "riley@leaseqa.dev",
-    "password": "$2a$10$vLByTIdNKhBuIuKl5C0iSSUuUuUuUuUuUuUuUuUuUuUuUuUuUuUuU",
+    "hashedPassword": "$2a$10$vLByTIdNKhBuIuKl5C0iSSUuUuUuUuUuUuUuUuUuUuUuUuUuUuUuU",
     "role": "tenant",
-    "profile": {
-      "location": "Cambridge, MA",
-      "preferredLanguage": "en"
-    },
     "banned": false,
     "createdAt": "2024-09-20T16:45:00.000Z",
     "updatedAt": "2024-09-20T16:45:00.000Z"
   },
   {
-    "_id": "user-lawyer-1",
     "username": "Lena Lawyer",
     "email": "lena@leaseqa.dev",
-    "password": "$2a$10$wMCzUJeOLiCvJvLm6D1jTTVvVvVvVvVvVvVvVvVvVvVvVvVvVvVvV",
+    "hashedPassword": "$2a$10$wMCzUJeOLiCvJvLm6D1jTTVvVvVvVvVvVvVvVvVvVvVvVvVvVvVvV",
     "role": "lawyer",
     "lawyerVerification": {
       "barNumber": "MA-998877",
       "state": "MA",
       "verifiedAt": "2024-04-02T10:00:00.000Z"
     },
-    "profile": {
-      "location": "Cambridge, MA",
-      "firm": "Lease Legal Partners"
-    },
     "banned": false,
     "createdAt": "2024-04-01T08:00:00.000Z",
     "updatedAt": "2024-04-02T10:00:00.000Z"
   },
   {
-    "_id": "user-lawyer-2",
     "username": "Marcus Attorney",
     "email": "marcus@leaseqa.dev",
-    "password": "$2a$10$xNDaVKfPMjDwKwMn7E2kUUWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwW",
+    "hashedPassword": "$2a$10$xNDaVKfPMjDwKwMn7E2kUUWwWwWwWwWwWwWwWwWwWwWwWwWwWwWwW",
     "role": "lawyer",
     "lawyerVerification": {
       "barNumber": "MA-776655",
       "state": "MA",
       "verifiedAt": "2024-05-15T14:00:00.000Z"
     },
-    "profile": {
-      "location": "Boston, MA",
-      "firm": "Boston Housing Law Group"
-    },
     "banned": false,
     "createdAt": "2024-05-10T09:00:00.000Z",
     "updatedAt": "2024-05-15T14:00:00.000Z"
   },
   {
-    "_id": "user-admin-1",
     "username": "Ari Admin",
     "email": "ari@leaseqa.dev",
-    "password": "$2a$10$yOEbWLgQNkExLxNo8F3lVVXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxX",
+    "hashedPassword": "$2a$10$yOEbWLgQNkExLxNo8F3lVVXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxX",
     "role": "admin",
-    "profile": {
-      "location": "Somerville, MA"
-    },
     "banned": false,
     "createdAt": "2024-01-01T00:00:00.000Z",
     "updatedAt": "2024-01-01T00:00:00.000Z"

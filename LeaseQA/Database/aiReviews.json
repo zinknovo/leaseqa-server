@@ -1,7 +1,6 @@
 [
   {
-    "_id": "review-rent-clause",
-    "userId": "user-tenant-1",
+    "userId": null,
     "contractType": "12-month apartment lease",
     "contractTextPreview": "Landlord reserves the right to adjust rent to reflect fair market value on sixty (60) days' notice.",
     "aiResponse": {
@@ -23,11 +22,10 @@
       ]
     },
     "createdAt": "2024-09-30T17:12:00.000Z",
-    "relatedPostId": "post-rent-visibility"
+    "relatedPostId": null
   },
   {
-    "_id": "review-security-deposit",
-    "userId": "user-tenant-2",
+    "userId": null,
     "contractType": "12-month apartment lease",
     "contractTextPreview": "Tenant shall pay a security deposit equal to two months' rent. Deposit may be used for any damages, cleaning, or unpaid rent at landlord's sole discretion.",
     "aiResponse": {
@@ -50,11 +48,10 @@
       ]
     },
     "createdAt": "2024-10-05T09:30:00.000Z",
-    "relatedPostId": "post-deposit-question"
+    "relatedPostId": null
   },
   {
-    "_id": "review-eviction-clause",
-    "userId": "user-tenant-1",
+    "userId": null,
     "contractType": "Month-to-month rental agreement",
     "contractTextPreview": "Landlord may terminate this agreement immediately if tenant violates any term. Tenant waives right to cure period.",
     "aiResponse": {
@@ -80,8 +77,7 @@
     "relatedPostId": null
   },
   {
-    "_id": "review-maintenance-clause",
-    "userId": "user-tenant-3",
+    "userId": null,
     "contractType": "12-month apartment lease",
     "contractTextPreview": "Tenant is responsible for all repairs and maintenance of the premises including plumbing, electrical, and HVAC systems.",
     "aiResponse": {
@@ -104,11 +100,10 @@
       ]
     },
     "createdAt": "2024-10-15T11:20:00.000Z",
-    "relatedPostId": "post-maintenance-issue"
+    "relatedPostId": null
   },
   {
-    "_id": "review-sublease-restriction",
-    "userId": "user-tenant-2",
+    "userId": null,
     "contractType": "12-month apartment lease",
     "contractTextPreview": "Subletting is strictly prohibited. Any attempt to sublet will result in immediate lease termination and forfeiture of security deposit.",
     "aiResponse": {
@@ -134,8 +129,7 @@
     "relatedPostId": null
   },
   {
-    "_id": "review-utility-clause",
-    "userId": "user-tenant-4",
+    "userId": null,
     "contractType": "12-month apartment lease",
     "contractTextPreview": "Tenant shall pay a monthly utility fee of $200 in addition to rent. This fee is non-refundable and not based on actual usage.",
     "aiResponse": {
@@ -158,11 +152,10 @@
       ]
     },
     "createdAt": "2024-10-25T08:15:00.000Z",
-    "relatedPostId": "post-utility-question"
+    "relatedPostId": null
   },
   {
-    "_id": "review-pet-policy",
-    "userId": "user-tenant-5",
+    "userId": null,
     "contractType": "12-month apartment lease",
     "contractTextPreview": "No pets allowed. Pet deposit of $500 non-refundable. Violation results in $50 per day fine until pet is removed.",
     "aiResponse": {
@@ -188,8 +181,7 @@
     "relatedPostId": null
   },
   {
-    "_id": "review-lease-renewal",
-    "userId": "user-tenant-1",
+    "userId": null,
     "contractType": "12-month apartment lease",
     "contractTextPreview": "Lease automatically renews for successive 12-month terms unless tenant provides 90 days written notice. Rent may increase up to 15% upon renewal.",
     "aiResponse": {
@@ -212,11 +204,10 @@
       ]
     },
     "createdAt": "2024-11-05T10:45:00.000Z",
-    "relatedPostId": "post-renewal-concern"
+    "relatedPostId": null
   },
   {
-    "_id": "review-entry-clause",
-    "userId": "user-tenant-3",
+    "userId": null,
     "contractType": "12-month apartment lease",
     "contractTextPreview": "Landlord may enter premises at any time for inspection, repairs, or showing to prospective tenants without prior notice.",
     "aiResponse": {
@@ -242,8 +233,7 @@
     "relatedPostId": null
   },
   {
-    "_id": "review-standard-lease",
-    "userId": "user-tenant-4",
+    "userId": null,
     "contractType": "12-month apartment lease",
     "contractTextPreview": "Standard residential lease agreement. Rent due on first of month. Security deposit equal to one month rent held in escrow. 30-day notice required for termination.",
     "aiResponse": {

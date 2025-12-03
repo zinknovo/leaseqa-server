@@ -4,7 +4,10 @@
     "details": "The lease I signed runs through next June but the landlord emailed a rent increase that starts in January. The contract only mentions annual increases. Is this enforceable and what should I reference when I push back?",
     "postType": "question",
     "visibility": "class",
-    "folders": ["rent_increase", "lease_basics"],
+    "folders": [
+      "rent_increase",
+      "lease_basics"
+    ],
     "authorId": "user-tenant-1",
     "lawyerOnly": false,
     "fromAIReviewId": "review-rent-clause",
@@ -20,7 +23,9 @@
     "details": "We've reported mold growth twice but maintenance only paints over it. Need to know what counts as a reasonable timeline for a licensed remediation in Massachusetts and whether withholding rent is ever appropriate.",
     "postType": "question",
     "visibility": "class",
-    "folders": ["maintenance"],
+    "folders": [
+      "maintenance"
+    ],
     "authorId": "user-tenant-1",
     "lawyerOnly": false,
     "fromAIReviewId": null,
@@ -36,7 +41,9 @@
     "details": "Sharing the Attorney General's checklist plus our internal template for move-out inspection photos. Please attach documentation if your deduction dispute escalates.",
     "postType": "announcement",
     "visibility": "class",
-    "folders": ["security_deposit"],
+    "folders": [
+      "security_deposit"
+    ],
     "authorId": "user-admin-1",
     "lawyerOnly": false,
     "fromAIReviewId": null,
@@ -52,7 +59,10 @@
     "details": "Moving into a new apartment in Allston and the landlord wants first month, last month, AND two months security deposit. That's four months upfront! I thought there was a limit in Massachusetts. What are my options?",
     "postType": "question",
     "visibility": "class",
-    "folders": ["security_deposit", "lease_basics"],
+    "folders": [
+      "security_deposit",
+      "lease_basics"
+    ],
     "authorId": "user-tenant-2",
     "lawyerOnly": false,
     "fromAIReviewId": "review-security-deposit",
@@ -68,7 +78,9 @@
     "details": "Our heating system broke last week and it's getting cold. Landlord keeps saying they're waiting for a contractor but it's been 5 days. The lease says I'm responsible for all repairs which seems wrong. What can I do?",
     "postType": "question",
     "visibility": "class",
-    "folders": ["maintenance"],
+    "folders": [
+      "maintenance"
+    ],
     "authorId": "user-tenant-3",
     "lawyerOnly": false,
     "fromAIReviewId": "review-maintenance-clause",
@@ -84,7 +96,10 @@
     "details": "My new lease has a flat $200/month utility fee that doesn't change based on usage. I live alone in a 1BR and barely use AC. Is there any way to challenge this or get actual metered billing?",
     "postType": "question",
     "visibility": "class",
-    "folders": ["utilities", "lease_basics"],
+    "folders": [
+      "utilities",
+      "lease_basics"
+    ],
     "authorId": "user-tenant-4",
     "lawyerOnly": false,
     "fromAIReviewId": "review-utility-clause",
@@ -100,7 +115,10 @@
     "details": "My lease auto-renews unless I give 90 days notice, and rent can increase up to 15%. That means I need to decide in September for a December renewal! Is this normal in Boston? Can I negotiate shorter notice?",
     "postType": "question",
     "visibility": "class",
-    "folders": ["rent_increase", "lease_basics"],
+    "folders": [
+      "rent_increase",
+      "lease_basics"
+    ],
     "authorId": "user-tenant-1",
     "lawyerOnly": false,
     "fromAIReviewId": "review-lease-renewal",
@@ -116,7 +134,9 @@
     "details": "I was late on rent once (paid 10 days late) and now my landlord slipped a notice under my door saying my lease is terminated immediately. No court papers, just a printed letter. Do I actually have to leave?",
     "postType": "question",
     "visibility": "class",
-    "folders": ["eviction"],
+    "folders": [
+      "eviction"
+    ],
     "authorId": "user-tenant-5",
     "lawyerOnly": false,
     "fromAIReviewId": "review-eviction-clause",
@@ -132,7 +152,10 @@
     "details": "My roommate lost their job and hasn't paid rent for 2 months. We're both on the lease. The landlord is threatening eviction for non-payment. Can I be evicted even though I've paid my half? What are my options?",
     "postType": "question",
     "visibility": "class",
-    "folders": ["roommates", "eviction"],
+    "folders": [
+      "roommates",
+      "eviction"
+    ],
     "authorId": "user-tenant-2",
     "lawyerOnly": false,
     "fromAIReviewId": null,
@@ -148,7 +171,10 @@
     "details": "Landlord wants $500 non-refundable pet deposit plus the regular security deposit. I thought all deposits had to be refundable in MA? Also the lease says no pets but then mentions pet deposit - confusing!",
     "postType": "question",
     "visibility": "class",
-    "folders": ["pets", "security_deposit"],
+    "folders": [
+      "pets",
+      "security_deposit"
+    ],
     "authorId": "user-tenant-5",
     "lawyerOnly": false,
     "fromAIReviewId": "review-pet-policy",
@@ -164,7 +190,9 @@
     "details": "Came home twice this week to find things moved around. Pretty sure landlord has been entering while I'm at work. Lease says they can enter 'at any time' but that can't be legal right? Feeling very uncomfortable.",
     "postType": "question",
     "visibility": "class",
-    "folders": ["lease_basics"],
+    "folders": [
+      "lease_basics"
+    ],
     "authorId": "user-tenant-3",
     "lawyerOnly": false,
     "fromAIReviewId": "review-entry-clause",
@@ -180,7 +208,9 @@
     "details": "I'm a licensed housing attorney in Massachusetts with 10 years experience. I'll be answering questions this Friday 2-4pm EST. Drop your questions below and I'll get to as many as I can!",
     "postType": "announcement",
     "visibility": "class",
-    "folders": ["ai_review"],
+    "folders": [
+      "ai_review"
+    ],
     "authorId": "user-lawyer-1",
     "lawyerOnly": false,
     "fromAIReviewId": null,
