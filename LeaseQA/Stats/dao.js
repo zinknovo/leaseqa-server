@@ -1,6 +1,7 @@
 import User from "../Users/model.js";
 import Post from "../Posts/model.js";
 import Answer from "../Answers/model.js";
+import Folder from "../Folders/model.js";
 
 export const overview = async () => {
     const totalPosts = await Post.countDocuments();
@@ -20,12 +21,26 @@ export const overview = async () => {
 
     const enrolledUsers = await User.countDocuments();
 
+    const folders = await Folder.find();
+    const breakdown = await Promise.all(
+        folders.map(async (folder) => {
+            const count = await Post.countDocuments({
+                folders: folder.name
+            });
+            return {
+                label: folder.displayName,
+                value: count
+            };
+        })
+    );
+
     return {
+        totalPosts,
         unreadPosts,
         unansweredPosts,
-        totalPosts,
         lawyerResponses,
         tenantResponses,
         enrolledUsers,
+        breakdown
     };
 };
