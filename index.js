@@ -57,7 +57,7 @@ app.get("/api/health", (_req, res) => {
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
-app.use("/api/ai-review", aiReviewRoutes);
+app.use("/api/ai-reviews", aiReviewRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api/answers", answerRoutes);
 app.use("/api/discussions", discussionRoutes);

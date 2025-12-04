@@ -23,3 +23,7 @@ export const updateReview = (id, data) =>
 
 export const deleteReview = (id) =>
     model.findByIdAndDelete(id);
+
+export const listAllReviews = async () => {
+    return model.find().sort({ createdAt: -1 });
+};
