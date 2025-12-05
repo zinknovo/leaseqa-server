@@ -37,6 +37,11 @@ const sessionOptions = {
     secret: process.env.SESSION_SECRET || "leaseqa-secret",
     resave: false,
     saveUninitialized: false,
+    cookie: {
+        secure: false, // Always false for http localhost
+        sameSite: "lax", // Allows cookies to be sent in top-level navigations
+        maxAge: 24 * 60 * 60 * 1000 // 24 hours
+    }
 };
 
 if (process.env.SERVER_ENV && process.env.SERVER_ENV !== "development") {

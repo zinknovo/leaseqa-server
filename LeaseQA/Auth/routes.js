@@ -5,7 +5,16 @@ import {sendData, sendError} from "../utils/responses.js";
 const router = express.Router();
 
 const setSessionUser = (req, user) => {
-    req.session.currentUser = usersDao.sanitizeUser(user);
+    try {
+        console.log("[Auth] Setting session for user:", user._id);
+        const sanitized = usersDao.sanitizeUser(user);
+        console.log("[Auth] Sanitized user:", sanitized);
+        req.session.currentUser = sanitized;
+        console.log("[Auth] Session set successfully");
+    } catch (error) {
+        console.error("[Auth] Error setting session:", error);
+        throw error; // Re-throw so the route handler catches it
+    }
 };
 
 router.post("/register", async (req, res) => {
@@ -41,44 +50,64 @@ router.post("/register", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-    const {email, password} = req.body;
+    try {
+        const {email, password} = req.body;
+        console.log(`[Auth] Login attempt for: ${email}`);
 
-    if (!email || !password) {
+        if (!email || !password) {
+            console.log("[Auth] Missing email or password");
+            return sendError(res, {
+                code: "VALIDATION_ERROR",
+                message: "Email and password are required.",
+                status: 400,
+            });
+        }
+
+        const user = await usersDao.findUserByEmail(email);
+        if (!user) {
+            console.log("[Auth] User not found");
+            return sendError(res, {
+                code: "INVALID_CREDENTIALS",
+                message: "Invalid login.",
+                status: 401,
+            });
+        }
+
+        const isValidPassword = usersDao.verifyPassword(password, user.hashedPassword);
+        if (!isValidPassword) {
+            console.log("[Auth] Invalid password");
+            return sendError(res, {
+                code: "INVALID_CREDENTIALS",
+                message: "Invalid login.",
+                status: 401,
+            });
+        }
+
+        if (user.banned) {
+            console.log("[Auth] User banned");
+            return sendError(res, {
+                code: "FORBIDDEN",
+                message: "This account has been disabled by an administrator.",
+                status: 403,
+            });
+        }
+
+        // Manual sanitization to avoid dependency issues
+        const userObj = user.toObject ? user.toObject() : user;
+        const {hashedPassword, ...safeUser} = userObj;
+        
+        req.session.currentUser = safeUser;
+        
+        console.log(`[Auth] Login successful. Session ID: ${req.sessionID}`);
+        return sendData(res, safeUser);
+    } catch (error) {
+        console.error("[Auth] CRITICAL ERROR in login route:", error);
         return sendError(res, {
-            code: "VALIDATION_ERROR",
-            message: "Email and password are required.",
-            status: 400,
+            code: "INTERNAL_ERROR",
+            message: "An internal server error occurred during login.",
+            status: 500
         });
     }
-
-    const user = await usersDao.findUserByEmail(email);
-    if (!user) {
-        return sendError(res, {
-            code: "INVALID_CREDENTIALS",
-            message: "Invalid login.",
-            status: 401,
-        });
-    }
-
-    const isValidPassword = usersDao.verifyPassword(password, user.hashedPassword);
-    if (!isValidPassword) {
-        return sendError(res, {
-            code: "INVALID_CREDENTIALS",
-            message: "Invalid login.",
-            status: 401,
-        });
-    }
-
-    if (user.banned) {
-        return sendError(res, {
-            code: "FORBIDDEN",
-            message: "This account has been disabled by an administrator.",
-            status: 403,
-        });
-    }
-
-    setSessionUser(req, user);
-    return sendData(res, req.session.currentUser);
 });
 
 router.post("/logout", (req, res) => {
@@ -89,13 +118,18 @@ router.post("/logout", (req, res) => {
 });
 
 router.get("/session", (req, res) => {
+    console.log(`[Auth] Session check. SessionID: ${req.sessionID}`);
+    console.log(`[Auth] Session Data:`, req.session);
+    
     if (!req.session.currentUser) {
+        console.log("[Auth] No currentUser in session.");
         return sendError(res, {
             code: "UNAUTHORIZED",
             message: "Not signed in.",
             status: 401,
         });
     }
+    console.log(`[Auth] Session valid for user: ${req.session.currentUser.email}`);
     return sendData(res, req.session.currentUser);
 });
 

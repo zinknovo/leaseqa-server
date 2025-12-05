@@ -21,6 +21,11 @@ export const overview = async () => {
 
     const enrolledUsers = await User.countDocuments();
 
+    // Find all admin users
+    const adminUsers = await User.find({ role: "admin" }, "_id");
+    const adminUserIds = adminUsers.map(user => user._id);
+    const adminPosts = await Post.countDocuments({ authorId: { $in: adminUserIds } });
+
     const folders = await Folder.find();
     const breakdown = await Promise.all(
         folders.map(async (folder) => {
@@ -41,6 +46,7 @@ export const overview = async () => {
         lawyerResponses,
         tenantResponses,
         enrolledUsers,
+        adminPosts,
         breakdown
     };
 };

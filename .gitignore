@@ -4,3 +4,11 @@ node_modules
 .idea
 npm-debug.log*
 .DS_Store
+
+# Temporary scripts and logs
+check-user.js
+test-login.js
+create-admins.js
+server.log
+server.out
+server.err
