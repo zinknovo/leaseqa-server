@@ -22,7 +22,10 @@ const UserSchema = new mongoose.Schema(
         },
         lawyerVerification: LawyerVerificationSchema,
     },
-    {timestamps: true},
+    {
+        timestamps: true,
+        collection: "users"
+    },
 );
 
 export default UserSchema;

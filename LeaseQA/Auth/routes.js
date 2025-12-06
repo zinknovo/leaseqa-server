@@ -13,7 +13,7 @@ const setSessionUser = (req, user) => {
         console.log("[Auth] Session set successfully");
     } catch (error) {
         console.error("[Auth] Error setting session:", error);
-        throw error; // Re-throw so the route handler catches it
+        throw error;
     }
 };
 
@@ -92,12 +92,11 @@ router.post("/login", async (req, res) => {
             });
         }
 
-        // Manual sanitization to avoid dependency issues
         const userObj = user.toObject ? user.toObject() : user;
         const {hashedPassword, ...safeUser} = userObj;
-        
+
         req.session.currentUser = safeUser;
-        
+
         console.log(`[Auth] Login successful. Session ID: ${req.sessionID}`);
         return sendData(res, safeUser);
     } catch (error) {
@@ -120,7 +119,7 @@ router.post("/logout", (req, res) => {
 router.get("/session", (req, res) => {
     console.log(`[Auth] Session check. SessionID: ${req.sessionID}`);
     console.log(`[Auth] Session Data:`, req.session);
-    
+
     if (!req.session.currentUser) {
         console.log("[Auth] No currentUser in session.");
         return sendError(res, {

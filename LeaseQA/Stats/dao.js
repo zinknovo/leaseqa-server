@@ -21,7 +21,6 @@ export const overview = async () => {
 
     const enrolledUsers = await User.countDocuments();
 
-    // Find all admin users
     const adminUsers = await User.find({ role: "admin" }, "_id");
     const adminUserIds = adminUsers.map(user => user._id);
     const adminPosts = await Post.countDocuments({ authorId: { $in: adminUserIds } });
