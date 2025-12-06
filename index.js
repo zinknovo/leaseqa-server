@@ -13,8 +13,12 @@ import discussionRoutes from "./LeaseQA/Discussions/routes.js";
 import folderRoutes from "./LeaseQA/Folders/routes.js";
 import statsRoutes from "./LeaseQA/Stats/routes.js";
 import moderationRoutes from "./LeaseQA/Moderation/routes.js";
+import path from "path";
+import {fileURLToPath} from "url";
 
 const app = express();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const connectDB = async () => {
     try {
@@ -56,6 +60,7 @@ if (process.env.SERVER_ENV && process.env.SERVER_ENV !== "development") {
 app.use(session(sessionOptions));
 
 app.use(express.json());
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.get("/api/health", (_req, res) => {
     res.json({ok: true, timestamp: new Date().toISOString()});
 });

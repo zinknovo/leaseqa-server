@@ -1,7 +1,7 @@
 import model from "./model.js";
 
 export const listPosts = (filters = {}) => {
-    const {folder, search, role, viewerRole} = filters;
+    const {folder, search, role, viewerRole, audience} = filters;
 
     const query = {};
 
@@ -18,6 +18,12 @@ export const listPosts = (filters = {}) => {
 
     if (role === "lawyer" && viewerRole !== "lawyer") {
         query.lawyerOnly = {$ne: true};
+    }
+
+    if (audience) {
+        query.audience = audience;
+    } else if (viewerRole !== "admin") {
+        query.audience = {$ne: "admin"};
     }
 
     return model.find(query).sort({lastActivityAt: -1});
@@ -38,11 +44,13 @@ export const createPost = (payload) =>
         details: payload.details,
         postType: payload.postType || "question",
         visibility: payload.visibility || "class",
+        audience: payload.audience || "everyone",
         folders: payload.folders,
         authorId: payload.authorId,
         lawyerOnly: payload.lawyerOnly || false,
         fromAIReviewId: payload.fromAIReviewId || null,
         urgency: payload.urgency || "low",
+        attachments: payload.attachments || [],
         viewCount: 0,
         isResolved: false,
         lastActivityAt: new Date(),

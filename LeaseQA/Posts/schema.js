@@ -13,6 +13,21 @@ const PostSchema = new mongoose.Schema(
             enum: ["class", "private"],
             default: "class",
         },
+        audience: {
+            type: String,
+            enum: ["everyone", "admin"],
+            default: "everyone",
+            index: true,
+        },
+        attachments: [
+            {
+                filename: String,
+                url: String,
+                mimetype: String,
+                size: Number,
+                uploadedAt: {type: Date, default: Date.now},
+            },
+        ],
         folders: {type: [String], default: [], index: true},
         summary: {type: String, required: true, maxlength: 120},
         details: {type: String, required: true},
