@@ -1,81 +1,44 @@
 [
   {
-    "summary": "Can my landlord raise rent halfway through a fixed lease?",
-    "details": "The lease I signed runs through next June but the landlord emailed a rent increase that starts in January. The contract only mentions annual increases. Is this enforceable and what should I reference when I push back?",
+    "summary": "Security deposit not returned after 45 days",
+    "details": "I moved out on October 15th and still haven't received my $2,400 security deposit back. Landlord keeps saying 'it's coming' but won't give me a date. The apartment was left in perfect condition with photos to prove it. What's the legal deadline in Massachusetts?",
     "postType": "question",
-    "visibility": "class",
-    "folders": [
-      "rent_increase",
-      "lease_basics"
-    ],
-    "authorId": "user-tenant-1",
-    "lawyerOnly": false,
-    "fromAIReviewId": "review-rent-clause",
-    "urgency": "high",
-    "viewCount": 72,
-    "isResolved": false,
-    "createdAt": "2024-10-01T15:00:00.000Z",
-    "updatedAt": "2024-10-02T10:21:00.000Z",
-    "lastActivityAt": "2024-10-05T17:35:00.000Z"
-  },
-  {
-    "summary": "Landlord ignoring persistent mold on bathroom ceiling",
-    "details": "We've reported mold growth twice but maintenance only paints over it. Need to know what counts as a reasonable timeline for a licensed remediation in Massachusetts and whether withholding rent is ever appropriate.",
-    "postType": "question",
-    "visibility": "class",
-    "folders": [
-      "maintenance"
-    ],
-    "authorId": "user-tenant-1",
-    "lawyerOnly": false,
-    "fromAIReviewId": null,
-    "urgency": "medium",
-    "viewCount": 41,
-    "isResolved": true,
-    "createdAt": "2024-09-21T11:00:00.000Z",
-    "updatedAt": "2024-09-22T09:12:00.000Z",
-    "lastActivityAt": "2024-09-24T16:45:00.000Z"
-  },
-  {
-    "summary": "Reminder: security deposit deductions must be itemized",
-    "details": "Sharing the Attorney General's checklist plus our internal template for move-out inspection photos. Please attach documentation if your deduction dispute escalates.",
-    "postType": "announcement",
     "visibility": "class",
     "folders": [
       "security_deposit"
     ],
-    "authorId": "user-admin-1",
+    "authorId": "user-tenant-1",
     "lawyerOnly": false,
     "fromAIReviewId": null,
-    "urgency": "low",
-    "viewCount": 128,
+    "urgency": "high",
+    "viewCount": 45,
     "isResolved": false,
-    "createdAt": "2024-09-10T09:00:00.000Z",
-    "updatedAt": "2024-09-10T09:00:00.000Z",
-    "lastActivityAt": "2024-09-12T13:23:00.000Z"
+    "createdAt": "2025-12-07T10:00:00.000Z",
+    "updatedAt": "2025-12-07T10:00:00.000Z",
+    "lastActivityAt": "2025-12-07T10:00:00.000Z"
   },
   {
-    "summary": "Landlord demanding two months security deposit - is this legal?",
-    "details": "Moving into a new apartment in Allston and the landlord wants first month, last month, AND two months security deposit. That's four months upfront! I thought there was a limit in Massachusetts. What are my options?",
+    "summary": "Landlord threatening eviction over late fee dispute",
+    "details": "Paid rent 3 days late due to bank issue. Landlord charged $150 late fee but lease says $50. Now threatening eviction if I don't pay the full $150. Can they do this?",
     "postType": "question",
     "visibility": "class",
     "folders": [
-      "security_deposit",
-      "lease_basics"
+      "eviction",
+      "fees"
     ],
     "authorId": "user-tenant-2",
     "lawyerOnly": false,
-    "fromAIReviewId": "review-security-deposit",
+    "fromAIReviewId": null,
     "urgency": "high",
-    "viewCount": 95,
-    "isResolved": true,
-    "createdAt": "2024-10-05T08:30:00.000Z",
-    "updatedAt": "2024-10-06T14:30:00.000Z",
-    "lastActivityAt": "2024-10-08T14:15:00.000Z"
+    "viewCount": 78,
+    "isResolved": false,
+    "createdAt": "2025-12-06T14:30:00.000Z",
+    "updatedAt": "2025-12-06T15:00:00.000Z",
+    "lastActivityAt": "2025-12-07T09:00:00.000Z"
   },
   {
-    "summary": "No heat for 5 days - landlord says wait for contractor",
-    "details": "Our heating system broke last week and it's getting cold. Landlord keeps saying they're waiting for a contractor but it's been 5 days. The lease says I'm responsible for all repairs which seems wrong. What can I do?",
+    "summary": "Radiator leaking and damaging my furniture",
+    "details": "The radiator in my bedroom has been leaking for two weeks. Already reported it twice. My dresser and rug are water damaged. Can I deduct repair costs from rent? Should I document everything?",
     "postType": "question",
     "visibility": "class",
     "folders": [
@@ -83,107 +46,198 @@
     ],
     "authorId": "user-tenant-3",
     "lawyerOnly": false,
-    "fromAIReviewId": "review-maintenance-clause",
-    "urgency": "high",
-    "viewCount": 67,
-    "isResolved": true,
-    "createdAt": "2024-10-15T10:00:00.000Z",
-    "updatedAt": "2024-10-16T11:00:00.000Z",
-    "lastActivityAt": "2024-10-19T11:20:00.000Z"
+    "fromAIReviewId": "review-repair-123",
+    "urgency": "medium",
+    "viewCount": 34,
+    "isResolved": false,
+    "createdAt": "2025-12-05T09:15:00.000Z",
+    "updatedAt": "2025-12-05T09:15:00.000Z",
+    "lastActivityAt": "2025-12-06T11:30:00.000Z"
   },
   {
-    "summary": "Flat $200 utility fee seems way too high",
-    "details": "My new lease has a flat $200/month utility fee that doesn't change based on usage. I live alone in a 1BR and barely use AC. Is there any way to challenge this or get actual metered billing?",
+    "summary": "Heat turned off in December - emergency?",
+    "details": "Building heat has been off for 2 days now. It's 28 degrees outside. Management says boiler parts are backordered. Using space heaters but electric bill will be insane. What are my rights here?",
     "postType": "question",
     "visibility": "class",
     "folders": [
       "utilities",
-      "lease_basics"
+      "maintenance"
     ],
     "authorId": "user-tenant-4",
     "lawyerOnly": false,
-    "fromAIReviewId": "review-utility-clause",
-    "urgency": "medium",
-    "viewCount": 54,
+    "fromAIReviewId": null,
+    "urgency": "high",
+    "viewCount": 156,
     "isResolved": false,
-    "createdAt": "2024-10-25T07:45:00.000Z",
-    "updatedAt": "2024-10-26T15:20:00.000Z",
-    "lastActivityAt": "2024-10-27T10:30:00.000Z"
+    "createdAt": "2025-12-04T08:00:00.000Z",
+    "updatedAt": "2025-12-04T12:00:00.000Z",
+    "lastActivityAt": "2025-12-05T16:00:00.000Z"
   },
   {
-    "summary": "90-day notice for lease renewal seems excessive",
-    "details": "My lease auto-renews unless I give 90 days notice, and rent can increase up to 15%. That means I need to decide in September for a December renewal! Is this normal in Boston? Can I negotiate shorter notice?",
+    "summary": "Neighbor's dog barking all night - lease violation?",
+    "details": "My upstairs neighbor got a dog last month and it barks constantly from midnight to 6am. I've complained to management twice but nothing changes. Is this a lease violation I can use to break my lease?",
+    "postType": "question",
+    "visibility": "class",
+    "folders": [
+      "pets",
+      "harassment"
+    ],
+    "authorId": "user-tenant-5",
+    "lawyerOnly": false,
+    "fromAIReviewId": null,
+    "urgency": "medium",
+    "viewCount": 42,
+    "isResolved": false,
+    "createdAt": "2025-12-03T19:00:00.000Z",
+    "updatedAt": "2025-12-03T19:00:00.000Z",
+    "lastActivityAt": "2025-12-04T10:00:00.000Z"
+  },
+  {
+    "summary": "Breaking lease early due to job relocation",
+    "details": "Just got transferred to NYC for work, starting January 15. Lease runs through August. Landlord wants 3 months rent as penalty. Is there a standard formula or can I negotiate? Have been a good tenant for 2 years.",
+    "postType": "question",
+    "visibility": "class",
+    "folders": [
+      "leasebreak"
+    ],
+    "authorId": "user-tenant-1",
+    "lawyerOnly": false,
+    "fromAIReviewId": "review-break-456",
+    "urgency": "high",
+    "viewCount": 89,
+    "isResolved": false,
+    "createdAt": "2025-12-02T16:00:00.000Z",
+    "updatedAt": "2025-12-03T10:00:00.000Z",
+    "lastActivityAt": "2025-12-04T09:30:00.000Z"
+  },
+  {
+    "summary": "Roommate moved out without notice - what now?",
+    "details": "My roommate just left last week with no warning. We're both on the lease and rent is due in 5 days. I can't afford the full amount alone. What happens if I only pay my half? Can landlord help find a replacement?",
+    "postType": "question",
+    "visibility": "class",
+    "folders": [
+      "roommates",
+      "fees"
+    ],
+    "authorId": "user-tenant-2",
+    "lawyerOnly": false,
+    "fromAIReviewId": null,
+    "urgency": "high",
+    "viewCount": 67,
+    "isResolved": false,
+    "createdAt": "2025-12-01T13:00:00.000Z",
+    "updatedAt": "2025-12-01T13:00:00.000Z",
+    "lastActivityAt": "2025-12-02T15:00:00.000Z"
+  },
+  {
+    "summary": "Landlord harassment - constant 'inspections'",
+    "details": "Landlord has done 4 'inspections' this month alone, always finding something to complain about. Pretty sure they want me out so they can raise rent. This feels like harassment. How do I document and report this?",
+    "postType": "question",
+    "visibility": "class",
+    "folders": [
+      "harassment"
+    ],
+    "authorId": "user-tenant-3",
+    "lawyerOnly": false,
+    "fromAIReviewId": null,
+    "urgency": "high",
+    "viewCount": 98,
+    "isResolved": false,
+    "createdAt": "2025-11-30T10:30:00.000Z",
+    "updatedAt": "2025-11-30T08:00:00.000Z",
+    "lastActivityAt": "2025-12-01T12:00:00.000Z"
+  },
+  {
+    "summary": "$75 late fee on $1,800 rent - is this excessive?",
+    "details": "My lease has a $75 late fee if rent is even 1 day late. That's over 4% of my rent! I was 2 days late once due to a holiday and got charged. Is there a legal limit on late fees in Boston?",
+    "postType": "question",
+    "visibility": "class",
+    "folders": [
+      "fees"
+    ],
+    "authorId": "user-tenant-4",
+    "lawyerOnly": false,
+    "fromAIReviewId": "review-fee-789",
+    "urgency": "low",
+    "viewCount": 51,
+    "isResolved": true,
+    "createdAt": "2025-11-29T09:00:00.000Z",
+    "updatedAt": "2025-11-29T14:00:00.000Z",
+    "lastActivityAt": "2025-11-30T10:00:00.000Z"
+  },
+  {
+    "summary": "Notice to quit received - 14 days to respond?",
+    "details": "Got a 14-day notice to quit for non-payment but I have proof I paid rent on time. Bank statement shows the check cleared. What's my next step? Do I need a lawyer immediately?",
+    "postType": "question",
+    "visibility": "class",
+    "folders": [
+      "eviction"
+    ],
+    "authorId": "user-tenant-5",
+    "lawyerOnly": false,
+    "fromAIReviewId": null,
+    "urgency": "high",
+    "viewCount": 134,
+    "isResolved": false,
+    "createdAt": "2025-11-25T07:00:00.000Z",
+    "updatedAt": "2025-11-25T09:00:00.000Z",
+    "lastActivityAt": "2025-11-26T11:00:00.000Z"
+  },
+  {
+    "summary": "Can landlord refuse ESA in no-pets building?",
+    "details": "I have an emotional support animal letter from my therapist. Landlord says building is strictly no pets and won't make exceptions. Isn't this a fair housing violation? What documentation do I need?",
+    "postType": "question",
+    "visibility": "class",
+    "folders": [
+      "pets",
+      "harassment"
+    ],
+    "authorId": "user-tenant-1",
+    "lawyerOnly": false,
+    "fromAIReviewId": null,
+    "urgency": "medium",
+    "viewCount": 76,
+    "isResolved": false,
+    "createdAt": "2025-11-20T14:00:00.000Z",
+    "updatedAt": "2025-11-21T10:00:00.000Z",
+    "lastActivityAt": "2025-11-22T16:00:00.000Z"
+  },
+  {
+    "summary": "Water bill suddenly tripled - landlord error?",
+    "details": "My water bill went from $40 to $120 this month with no change in usage. Building has shared meters and landlord calculates my portion. Suspect they made a mistake. How do I dispute this?",
+    "postType": "question",
+    "visibility": "class",
+    "folders": [
+      "utilities"
+    ],
+    "authorId": "user-tenant-2",
+    "lawyerOnly": false,
+    "fromAIReviewId": null,
+    "urgency": "medium",
+    "viewCount": 38,
+    "isResolved": true,
+    "createdAt": "2025-11-15T11:30:00.000Z",
+    "updatedAt": "2025-11-16T09:00:00.000Z",
+    "lastActivityAt": "2025-11-17T14:00:00.000Z"
+  },
+  {
+    "summary": "Lease renewal terms seem unfair - 15% increase",
+    "details": "My landlord just sent renewal terms with a 15% rent increase. Current rent is $2,200 and they want $2,530. Is there any rent control in Boston? Can I negotiate or should I just move?",
     "postType": "question",
     "visibility": "class",
     "folders": [
       "rent_increase",
       "lease_basics"
     ],
-    "authorId": "user-tenant-1",
-    "lawyerOnly": false,
-    "fromAIReviewId": "review-lease-renewal",
-    "urgency": "medium",
-    "viewCount": 82,
-    "isResolved": true,
-    "createdAt": "2024-11-05T09:30:00.000Z",
-    "updatedAt": "2024-11-06T09:00:00.000Z",
-    "lastActivityAt": "2024-11-08T15:00:00.000Z"
-  },
-  {
-    "summary": "Received 'immediate termination' notice - is this valid?",
-    "details": "I was late on rent once (paid 10 days late) and now my landlord slipped a notice under my door saying my lease is terminated immediately. No court papers, just a printed letter. Do I actually have to leave?",
-    "postType": "question",
-    "visibility": "class",
-    "folders": [
-      "eviction"
-    ],
-    "authorId": "user-tenant-5",
-    "lawyerOnly": false,
-    "fromAIReviewId": "review-eviction-clause",
-    "urgency": "high",
-    "viewCount": 156,
-    "isResolved": true,
-    "createdAt": "2024-11-08T08:00:00.000Z",
-    "updatedAt": "2024-11-08T11:30:00.000Z",
-    "lastActivityAt": "2024-11-11T09:15:00.000Z"
-  },
-  {
-    "summary": "Roommate stopped paying their share - am I liable for full rent?",
-    "details": "My roommate lost their job and hasn't paid rent for 2 months. We're both on the lease. The landlord is threatening eviction for non-payment. Can I be evicted even though I've paid my half? What are my options?",
-    "postType": "question",
-    "visibility": "class",
-    "folders": [
-      "roommates",
-      "eviction"
-    ],
-    "authorId": "user-tenant-2",
+    "authorId": "user-tenant-3",
     "lawyerOnly": false,
     "fromAIReviewId": null,
-    "urgency": "high",
-    "viewCount": 89,
-    "isResolved": false,
-    "createdAt": "2024-11-12T09:00:00.000Z",
-    "updatedAt": "2024-11-12T10:00:00.000Z",
-    "lastActivityAt": "2024-11-14T14:30:00.000Z"
-  },
-  {
-    "summary": "Non-refundable pet deposit on top of security deposit?",
-    "details": "Landlord wants $500 non-refundable pet deposit plus the regular security deposit. I thought all deposits had to be refundable in MA? Also the lease says no pets but then mentions pet deposit - confusing!",
-    "postType": "question",
-    "visibility": "class",
-    "folders": [
-      "pets",
-      "security_deposit"
-    ],
-    "authorId": "user-tenant-5",
-    "lawyerOnly": false,
-    "fromAIReviewId": "review-pet-policy",
     "urgency": "medium",
-    "viewCount": 63,
+    "viewCount": 92,
     "isResolved": false,
-    "createdAt": "2024-11-01T12:00:00.000Z",
-    "updatedAt": "2024-11-01T12:00:00.000Z",
-    "lastActivityAt": "2024-11-03T16:20:00.000Z"
+    "createdAt": "2025-11-10T15:00:00.000Z",
+    "updatedAt": "2025-11-11T08:00:00.000Z",
+    "lastActivityAt": "2025-11-12T14:00:00.000Z"
   },
   {
     "summary": "Landlord entering apartment without any notice",
@@ -191,17 +245,18 @@
     "postType": "question",
     "visibility": "class",
     "folders": [
-      "lease_basics"
+      "lease_basics",
+      "harassment"
     ],
-    "authorId": "user-tenant-3",
+    "authorId": "user-tenant-4",
     "lawyerOnly": false,
     "fromAIReviewId": "review-entry-clause",
     "urgency": "high",
     "viewCount": 112,
     "isResolved": false,
-    "createdAt": "2024-11-10T14:00:00.000Z",
-    "updatedAt": "2024-11-10T14:00:00.000Z",
-    "lastActivityAt": "2024-11-12T10:45:00.000Z"
+    "createdAt": "2025-11-08T14:00:00.000Z",
+    "updatedAt": "2025-11-08T14:00:00.000Z",
+    "lastActivityAt": "2025-11-10T10:45:00.000Z"
   },
   {
     "summary": "[AMA] Housing attorney answering questions this Friday",
@@ -217,8 +272,101 @@
     "urgency": "low",
     "viewCount": 234,
     "isResolved": false,
-    "createdAt": "2024-11-14T10:00:00.000Z",
-    "updatedAt": "2024-11-14T10:00:00.000Z",
-    "lastActivityAt": "2024-11-14T10:00:00.000Z"
+    "createdAt": "2025-11-05T10:00:00.000Z",
+    "updatedAt": "2025-11-05T10:00:00.000Z",
+    "lastActivityAt": "2025-11-07T15:00:00.000Z"
+  },
+  {
+    "summary": "Roommate stopped paying their share - am I liable?",
+    "details": "My roommate lost their job and hasn't paid rent for 2 months. We're both on the lease. The landlord is threatening eviction for non-payment. Can I be evicted even though I've paid my half? What are my options?",
+    "postType": "question",
+    "visibility": "class",
+    "folders": [
+      "roommates",
+      "eviction"
+    ],
+    "authorId": "user-tenant-5",
+    "lawyerOnly": false,
+    "fromAIReviewId": null,
+    "urgency": "high",
+    "viewCount": 89,
+    "isResolved": false,
+    "createdAt": "2025-11-01T09:00:00.000Z",
+    "updatedAt": "2025-11-01T10:00:00.000Z",
+    "lastActivityAt": "2025-11-03T14:30:00.000Z"
+  },
+  {
+    "summary": "Non-refundable pet deposit on top of security deposit?",
+    "details": "Landlord wants $500 non-refundable pet deposit plus the regular security deposit. I thought all deposits had to be refundable in MA? Also the lease says no pets but then mentions pet deposit - confusing!",
+    "postType": "question",
+    "visibility": "class",
+    "folders": [
+      "pets",
+      "security_deposit"
+    ],
+    "authorId": "user-tenant-1",
+    "lawyerOnly": false,
+    "fromAIReviewId": "review-pet-policy",
+    "urgency": "medium",
+    "viewCount": 63,
+    "isResolved": false,
+    "createdAt": "2025-10-25T12:00:00.000Z",
+    "updatedAt": "2025-10-25T12:00:00.000Z",
+    "lastActivityAt": "2025-10-27T16:20:00.000Z"
+  },
+  {
+    "summary": "Flat $200 utility fee seems way too high",
+    "details": "My new lease has a flat $200/month utility fee that doesn't change based on usage. I live alone in a 1BR and barely use AC. Is there any way to challenge this or get actual metered billing?",
+    "postType": "question",
+    "visibility": "class",
+    "folders": [
+      "utilities",
+      "lease_basics"
+    ],
+    "authorId": "user-tenant-2",
+    "lawyerOnly": false,
+    "fromAIReviewId": "review-utility-clause",
+    "urgency": "medium",
+    "viewCount": 54,
+    "isResolved": false,
+    "createdAt": "2025-10-18T07:45:00.000Z",
+    "updatedAt": "2025-10-19T15:20:00.000Z",
+    "lastActivityAt": "2025-10-20T10:30:00.000Z"
+  },
+  {
+    "summary": "No heat for 5 days - landlord says wait for contractor",
+    "details": "Our heating system broke last week and it's getting cold. Landlord keeps saying they're waiting for a contractor but it's been 5 days. The lease says I'm responsible for all repairs which seems wrong. What can I do?",
+    "postType": "question",
+    "visibility": "class",
+    "folders": [
+      "maintenance"
+    ],
+    "authorId": "user-tenant-3",
+    "lawyerOnly": false,
+    "fromAIReviewId": "review-maintenance-clause",
+    "urgency": "high",
+    "viewCount": 67,
+    "isResolved": true,
+    "createdAt": "2025-10-10T10:00:00.000Z",
+    "updatedAt": "2025-10-11T11:00:00.000Z",
+    "lastActivityAt": "2025-10-14T11:20:00.000Z"
+  },
+  {
+    "summary": "Reminder: security deposit deductions must be itemized",
+    "details": "Sharing the Attorney General's checklist plus our internal template for move-out inspection photos. Please attach documentation if your deduction dispute escalates.",
+    "postType": "announcement",
+    "visibility": "class",
+    "folders": [
+      "security_deposit"
+    ],
+    "authorId": "user-admin-1",
+    "lawyerOnly": false,
+    "fromAIReviewId": null,
+    "urgency": "low",
+    "viewCount": 128,
+    "isResolved": false,
+    "createdAt": "2025-10-01T09:00:00.000Z",
+    "updatedAt": "2025-10-01T09:00:00.000Z",
+    "lastActivityAt": "2025-10-03T13:23:00.000Z"
   }
 ]

@@ -13,7 +13,7 @@
   },
   {
     "name": "maintenance",
-    "displayName": "Maintenance",
+    "displayName": "Maintenance & Repairs",
     "description": "Repairs, response deadlines, and what landlords must cover.",
     "color": "#10b981"
   },
@@ -31,8 +31,8 @@
   },
   {
     "name": "roommates",
-    "displayName": "Roommate Changes",
-    "description": "How to add, remove, or replace roommates without penalties.",
+    "displayName": "Roommates & Sublease",
+    "description": "How to add, remove, or replace roommates and subletting.",
     "color": "#0ea5e9"
   },
   {
@@ -52,5 +52,29 @@
     "displayName": "AI Review Follow-up",
     "description": "Questions that originated from an AI lease risk report.",
     "color": "#6366f1"
+  },
+  {
+    "name": "fees",
+    "displayName": "Late Fees / Rent",
+    "description": "Rent timing, late fees, and payment plans.",
+    "color": "#ec4899"
+  },
+  {
+    "name": "harassment",
+    "displayName": "Landlord Harassment",
+    "description": "Retaliation, lockouts, and privacy.",
+    "color": "#ef4444"
+  },
+  {
+    "name": "leasebreak",
+    "displayName": "Breaking a Lease",
+    "description": "Early termination and assignments.",
+    "color": "#8b5cf6"
+  },
+  {
+    "name": "uncategorized",
+    "displayName": "Uncategorized",
+    "description": "Posts moved here when a section is removed.",
+    "color": "#94a3b8"
   }
 ]
