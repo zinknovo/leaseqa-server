@@ -184,6 +184,20 @@ router.delete("/:postId", async (req, res) => {
     sendData(res, {message: "Post deleted"});
 });
 
+router.patch("/:postId/pin", async (req, res) => {
+    const currentUser = requireRole(req, res, ["admin"]);
+    if (!currentUser) return;
+
+    const post = await postsDao.findPostById(req.params.postId);
+    if (!post) {
+        return sendNotFound(res, "Post not found");
+    }
+
+    const isPinned = req.body.isPinned !== undefined ? req.body.isPinned : !post.isPinned;
+    const updated = await postsDao.updatePost(req.params.postId, {isPinned});
+    sendData(res, updated);
+});
+
 router.post("/:postId/attachments", upload.array("files", 5), async (req, res) => {
     const currentUser = requireUser(req, res);
     if (!currentUser) return;
