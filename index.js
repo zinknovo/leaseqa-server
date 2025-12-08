@@ -32,9 +32,15 @@ const connectDB = async () => {
 };
 connectDB();
 
+const allowedOrigins = [process.env.CLIENT_URL || "http://localhost:3000"];
 app.use(
     cors({
-        origin: process.env.CLIENT_URL || "http://localhost:3000",
+        origin: (origin, callback) => {
+            if (!origin || allowedOrigins.includes(origin)) {
+                return callback(null, true);
+            }
+            return callback(new Error("Not allowed by CORS"));
+        },
         credentials: true,
     })
 );
