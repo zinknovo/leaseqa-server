@@ -20,6 +20,9 @@ import {fileURLToPath} from "url";
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const clientUrl = process.env.CLIENT_URL || "http://localhost:3000";
+const isLocalClient = clientUrl.includes("localhost") || clientUrl.includes("127.0.0.1");
+const isProdLikeEnv = process.env.SERVER_ENV && process.env.SERVER_ENV !== "development";
 
 const connectDB = async () => {
     try {
@@ -32,7 +35,7 @@ const connectDB = async () => {
 };
 connectDB();
 
-const allowedOrigins = [process.env.CLIENT_URL || "http://localhost:3000"];
+const allowedOrigins = [clientUrl];
 app.use(
     cors({
         origin: (origin, callback) => {
@@ -44,6 +47,7 @@ app.use(
         credentials: true,
     })
 );
+const useSecureCookies = isProdLikeEnv || !isLocalClient;
 const sessionOptions = {
     secret: process.env.SESSION_SECRET || "leaseqa-secret",
     resave: false,
@@ -53,20 +57,16 @@ const sessionOptions = {
         ttl: 24 * 60 * 60, // 24 hours
     }),
     cookie: {
-        secure: false,
-        sameSite: "lax",
+        secure: useSecureCookies,
+        sameSite: useSecureCookies ? "none" : "lax",
         maxAge: 24 * 60 * 60 * 1000
     }
 };
 
-if (process.env.SERVER_ENV && process.env.SERVER_ENV !== "development") {
+if (useSecureCookies) {
+    // ensure secure cookies work correctly behind proxies/load balancers in prod/staging
+    app.set("trust proxy", 1);
     sessionOptions.proxy = true;
-    sessionOptions.cookie = {
-        sameSite: "none",
-        secure: true,
-        // omit domain so cookie applies to current host; safer for cross-origin frontends
-        maxAge: 24 * 60 * 60 * 1000
-    };
 }
 
 app.use(session(sessionOptions));
