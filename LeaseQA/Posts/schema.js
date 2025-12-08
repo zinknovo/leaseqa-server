@@ -8,11 +8,6 @@ const PostSchema = new mongoose.Schema(
             enum: ["question", "note", "announcement"],
             default: "question",
         },
-        visibility: {
-            type: String,
-            enum: ["class", "private"],
-            default: "class",
-        },
         audience: {
             type: String,
             enum: ["everyone", "admin"],

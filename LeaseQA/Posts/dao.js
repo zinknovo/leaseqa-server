@@ -43,7 +43,6 @@ export const createPost = (payload) =>
         summary: payload.summary,
         details: payload.details,
         postType: payload.postType || "question",
-        visibility: payload.visibility || "class",
         audience: payload.audience || "everyone",
         folders: payload.folders,
         authorId: payload.authorId,
