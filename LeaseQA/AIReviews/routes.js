@@ -26,33 +26,6 @@ router.get("/", async (req, res) => {
     }
 });
 
-router.get("/debug", async (req, res) => {
-    const apiKey = process.env.GOOGLE_API_KEY || "";
-    // Show first 4 and last 4 chars to catch copy-paste errors (e.g. including "GOOGLE_API_KEY=" in the value)
-    const maskedKey = apiKey.length > 10
-        ? `${apiKey.slice(0, 5)}...${apiKey.slice(-5)}`
-        : `INVALID_KEY_LENGTH_${apiKey.length}`;
-
-    let apiResult = null;
-    try {
-        // Direct call to list models to see what the key can actually see
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`);
-        apiResult = await response.json();
-    } catch (err) {
-        apiResult = { error: err.toString() };
-    }
-
-    res.json({
-        serverTime: new Date().toISOString(),
-        node: process.version,
-        envKeyCheck: {
-            exists: !!apiKey,
-            length: apiKey.length,
-            preview: maskedKey
-        },
-        geminiApiCheck: apiResult
-    });
-});
 
 router.get("/:reviewId", async (req, res) => {
     const review = await aiDao.findReviewById(req.params.reviewId);
