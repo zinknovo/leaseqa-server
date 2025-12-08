@@ -5,7 +5,7 @@ const PostSchema = new mongoose.Schema(
         authorId: {type: Types.ObjectId, ref: "User", required: true},
         postType: {
             type: String,
-            enum: ["question", "note", "poll"],
+            enum: ["question", "note", "announcement"],
             default: "question",
         },
         visibility: {
@@ -32,10 +32,13 @@ const PostSchema = new mongoose.Schema(
         summary: {type: String, required: true, maxlength: 120},
         details: {type: String, required: true},
         urgency: {type: String, enum: ["low", "medium", "high"], default: "low"},
-        fromAIReview: {type: Types.ObjectId, ref: "AIReview"},
+        fromAIReviewId: {type: Types.ObjectId, ref: "AIReview"},
         viewCount: {type: Number, default: 0},
         isPinned: {type: Boolean, default: false},
-        status: {type: String, enum: ["open", "resolved"], default: "open"},
+        isResolved: {type: Boolean, default: false},
+        isAnonymous: {type: Boolean, default: false},
+        lawyerOnly: {type: Boolean, default: false},
+        lastActivityAt: {type: Date, default: Date.now},
     },
     {
         timestamps: true,

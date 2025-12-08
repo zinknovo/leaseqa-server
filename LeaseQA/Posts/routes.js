@@ -135,24 +135,37 @@ router.post("/", async (req, res) => {
 });
 
 router.put("/:postId", async (req, res) => {
-    const currentUser = requireUser(req, res);
-    if (!currentUser) return;
+    try {
+        const currentUser = requireUser(req, res);
+        if (!currentUser) return;
 
-    const post = await postsDao.findPostById(req.params.postId);
-    if (!post) {
-        return sendNotFound(res, "Post not found");
-    }
+        const post = await postsDao.findPostById(req.params.postId);
+        if (!post) {
+            return sendNotFound(res, "Post not found");
+        }
 
-    if (post.authorId.toString() !== currentUser._id.toString() && currentUser.role !== "admin") {
-        return sendError(res, {
-            code: "FORBIDDEN",
-            message: "Only the author or admin can edit this post.",
-            status: 403,
+        const isAuthor = post.authorId && currentUser._id && 
+            post.authorId.toString() === currentUser._id.toString();
+        const isAdmin = currentUser.role === "admin";
+        
+        if (!isAuthor && !isAdmin) {
+            return sendError(res, {
+                code: "FORBIDDEN",
+                message: "Only the author or admin can edit this post.",
+                status: 403,
+            });
+        }
+
+        const updated = await postsDao.updatePost(req.params.postId, req.body);
+        sendData(res, updated);
+    } catch (err) {
+        console.error("Error updating post:", err);
+        sendError(res, {
+            code: "SERVER_ERROR",
+            message: err.message || "Failed to update post",
+            status: 500,
         });
     }
-
-    const updated = await postsDao.updatePost(req.params.postId, req.body);
-    sendData(res, updated);
 });
 
 router.delete("/:postId", async (req, res) => {

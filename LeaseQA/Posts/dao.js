@@ -48,6 +48,7 @@ export const createPost = (payload) =>
         folders: payload.folders,
         authorId: payload.authorId,
         lawyerOnly: payload.lawyerOnly || false,
+        isAnonymous: payload.isAnonymous || false,
         fromAIReviewId: payload.fromAIReviewId || null,
         urgency: payload.urgency || "low",
         attachments: payload.attachments || [],

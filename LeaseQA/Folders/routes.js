@@ -38,24 +38,24 @@ router.post("/", async (req, res) => {
     sendData(res, folder, 201);
 });
 
-router.put("/:folderId", async (req, res) => {
+router.put("/:_id", async (req, res) => {
     const admin = requireRole(req, res, ["admin"]);
     if (!admin) return;
 
-    const folder = await foldersDao.findFolderById(req.params.folderId);
+    const folder = await foldersDao.findFolderById(req.params._id);
     if (!folder) {
         return sendNotFound(res, "Folder not found");
     }
 
-    const updated = await foldersDao.updateFolder(req.params.folderId, req.body);
+    const updated = await foldersDao.updateFolder(req.params._id, req.body);
     sendData(res, updated);
 });
 
-router.delete("/:folderId", async (req, res) => {
+router.delete("/:_id", async (req, res) => {
     const admin = requireRole(req, res, ["admin"]);
     if (!admin) return;
 
-    const folder = await foldersDao.findFolderById(req.params.folderId);
+    const folder = await foldersDao.findFolderById(req.params._id);
     if (!folder) {
         return sendNotFound(res, "Folder not found");
     }
@@ -72,10 +72,12 @@ router.delete("/:folderId", async (req, res) => {
 
     await PostsModel.updateMany(
         {folders: folder.name},
-        {
-            $pull: {folders: folder.name},
-            $addToSet: {folders: fallback.name},
-        }
+        {$pull: {folders: folder.name}}
+    );
+
+    await PostsModel.updateMany(
+        {folders: {$size: 0}},
+        {$addToSet: {folders: fallback.name}}
     );
 
     await foldersDao.deleteFolder(req.params._id);
