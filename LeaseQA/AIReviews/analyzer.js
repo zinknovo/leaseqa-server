@@ -1,5 +1,5 @@
 // Available models: gemini-1.5-flash (recommended for free tier), gemini-1.5-pro, gemini-1.0-pro
-const MODEL_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
+const MODEL_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent";
 
 const parseModelJson = (rawText) => {
     try {
