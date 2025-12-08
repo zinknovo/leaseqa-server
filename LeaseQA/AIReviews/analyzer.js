@@ -17,20 +17,7 @@ const parseModelJson = (rawText) => {
     }
 };
 
-const normalizeResponse = (rawText) => {
-    const parsed = parseModelJson(rawText);
-    if (parsed?.highRisk && parsed.summary) {
-        return parsed;
-    }
 
-    return {
-        summary: rawText || "No summary returned.",
-        highRisk: [],
-        mediumRisk: [],
-        lowRisk: [],
-        recommendations: [],
-    };
-};
 
 export const analyzeContractText = async (text) => {
     const apiKey = process.env.GOOGLE_API_KEY;
@@ -46,7 +33,7 @@ export const analyzeContractText = async (text) => {
   "lowRisk": ["..."],
   "recommendations": ["..."]
 }
-Only output valid JSON. Lease content:
+Strictly output valid JSON only. No markdown formatting. No trailing commas. Lease content:
 ${text.slice(0, 12000)}
 `.trim();
 
@@ -66,5 +53,23 @@ ${text.slice(0, 12000)}
     }
 
     const rawText = data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
-    return normalizeResponse(rawText);
+    const parsed = parseModelJson(rawText);
+    if (parsed) {
+        return {
+            summary: parsed.summary || "Analysis complete.",
+            highRisk: parsed.highRisk || [],
+            mediumRisk: parsed.mediumRisk || [],
+            lowRisk: parsed.lowRisk || [],
+            recommendations: parsed.recommendations || [],
+        };
+    }
+    
+    // Fallback if parsing absolutely failed
+    return {
+        summary: rawText || "No summary returned.",
+        highRisk: [],
+        mediumRisk: [],
+        lowRisk: [],
+        recommendations: [],
+    };
 };
