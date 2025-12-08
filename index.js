@@ -20,8 +20,16 @@ import {fileURLToPath} from "url";
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const clientUrl = process.env.CLIENT_URL || "http://localhost:3000";
-const isLocalClient = clientUrl.includes("localhost") || clientUrl.includes("127.0.0.1");
+const envClientUrls = (process.env.CLIENT_URLS || process.env.CLIENT_URL || "http://localhost:3000")
+    .split(",")
+    .map(url => url.trim())
+    .filter(Boolean);
+const defaultClientOrigin = envClientUrls[0] || "http://localhost:3000";
+const allowedOrigins = new Set([
+    ...envClientUrls,
+    "https://leaseqa-client-web.vercel.app", // hosted frontend
+]);
+const isLocalClient = [...allowedOrigins].every(url => url.includes("localhost") || url.includes("127.0.0.1"));
 const isProdLikeEnv = process.env.SERVER_ENV && process.env.SERVER_ENV !== "development";
 
 const connectDB = async () => {
@@ -35,14 +43,14 @@ const connectDB = async () => {
 };
 connectDB();
 
-const allowedOrigins = [clientUrl];
 app.use(
     cors({
         origin: (origin, callback) => {
-            if (!origin || allowedOrigins.includes(origin)) {
+            if (!origin) return callback(null, true);
+            if (allowedOrigins.has(origin) || origin.endsWith(".vercel.app")) {
                 return callback(null, true);
             }
-            return callback(new Error("Not allowed by CORS"));
+            return callback(new Error(`Not allowed by CORS: ${origin}`));
         },
         credentials: true,
     })
