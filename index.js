@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import session from "express-session";
+import MongoStore from "connect-mongo";
 import mongoose from "mongoose";
 
 import authRoutes from "./LeaseQA/Auth/routes.js";
@@ -41,6 +42,10 @@ const sessionOptions = {
     secret: process.env.SESSION_SECRET || "leaseqa-secret",
     resave: false,
     saveUninitialized: false,
+    store: MongoStore.create({
+        mongoUrl: process.env.DATABASE_CONNECTION_STRING,
+        ttl: 24 * 60 * 60, // 24 hours
+    }),
     cookie: {
         secure: false,
         sameSite: "lax",
