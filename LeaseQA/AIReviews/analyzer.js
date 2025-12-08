@@ -14,13 +14,15 @@ const parseModelJson = (rawText) => {
 
 const normalizeResponse = (rawText) => {
     const parsed = parseModelJson(rawText);
-    if (parsed?.riskLevels && parsed.summary) {
+    if (parsed?.highRisk && parsed.summary) {
         return parsed;
     }
 
     return {
         summary: rawText || "No summary returned.",
-        riskLevels: {high: [], medium: [], low: []},
+        highRisk: [],
+        mediumRisk: [],
+        lowRisk: [],
         recommendations: [],
     };
 };
@@ -34,7 +36,9 @@ export const analyzeContractText = async (text) => {
     const prompt = `You are a lease risk analyst. Return JSON in the exact format:
 {
   "summary": "one-line summary",
-  "riskLevels": { "high": ["..."], "medium": ["..."], "low": ["..."] },
+  "highRisk": ["..."],
+  "mediumRisk": ["..."],
+  "lowRisk": ["..."],
   "recommendations": ["..."]
 }
 Only output valid JSON. Lease content:

@@ -67,6 +67,7 @@ router.post("/", upload.single("file"), async (req, res) => {
         sendError(res, {
             code: "AI_REVIEW_ERROR",
             message: err.message || "AI review failed",
+            details: err.toString(),
             status: 500,
         });
     }
