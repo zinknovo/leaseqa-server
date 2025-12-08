@@ -1,8 +1,11 @@
-const MODEL_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent";
+// Available models: gemini-1.5-flash (recommended for free tier), gemini-1.5-pro, gemini-1.0-pro
+const MODEL_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent";
 
 const parseModelJson = (rawText) => {
     try {
-        const parsed = JSON.parse(rawText);
+        // Strip markdown code blocks if present (e.g. ```json ... ```)
+        const cleanedText = rawText.replace(/```json/g, "").replace(/```/g, "").trim();
+        const parsed = JSON.parse(cleanedText);
         return parsed && typeof parsed === "object" ? parsed : null;
     } catch {
         return null;
