@@ -58,7 +58,8 @@ if (process.env.SERVER_ENV && process.env.SERVER_ENV !== "development") {
     sessionOptions.cookie = {
         sameSite: "none",
         secure: true,
-        domain: process.env.SERVER_URL,
+        // omit domain so cookie applies to current host; safer for cross-origin frontends
+        maxAge: 24 * 60 * 60 * 1000
     };
 }
 
