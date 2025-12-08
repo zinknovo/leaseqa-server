@@ -55,7 +55,7 @@ app.use(
         credentials: true,
     })
 );
-const useSecureCookies = isProdLikeEnv || !isLocalClient;
+const useSecureCookies = isProdLikeEnv;
 const sessionOptions = {
     secret: process.env.SESSION_SECRET || "leaseqa-secret",
     resave: false,
