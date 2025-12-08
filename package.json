@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "node --watch index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "seed:demo-users": "node scripts/seed-demo-users.js"
   },
   "keywords": [],
   "author": "",
