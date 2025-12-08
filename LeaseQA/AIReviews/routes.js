@@ -9,12 +9,21 @@ const router = express.Router();
 const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 8 * 1024 * 1024 } });
 
 router.get("/", async (req, res) => {
-    const currentUser = req.session?.currentUser;
-    if (!currentUser) {
-        return sendData(res, []);
+    try {
+        const currentUser = req.session?.currentUser;
+        if (!currentUser) {
+            return sendData(res, []);
+        }
+        const reviews = await aiDao.listReviewsForUser(currentUser._id);
+        sendData(res, reviews);
+    } catch (error) {
+        console.error("[AI Reviews] Error listing reviews:", error);
+        sendError(res, {
+            code: "INTERNAL_ERROR",
+            message: "Failed to load reviews.",
+            status: 500
+        });
     }
-    const reviews = await aiDao.listReviewsForUser(currentUser._id);
-    sendData(res, reviews);
 });
 
 router.get("/:reviewId", async (req, res) => {

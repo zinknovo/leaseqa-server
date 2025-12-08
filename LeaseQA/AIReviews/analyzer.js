@@ -1,4 +1,3 @@
-const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
 const MODEL_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent";
 
 const parseModelJson = (rawText) => {
@@ -24,8 +23,9 @@ const normalizeResponse = (rawText) => {
 };
 
 export const analyzeContractText = async (text) => {
-    if (!GOOGLE_API_KEY) {
-        throw new Error("Missing GOOGLE_API_KEY environment variable");
+    const apiKey = process.env.GOOGLE_API_KEY;
+    if (!apiKey) {
+        throw new Error("Missing GOOGLE_API_KEY environment variable. Please add it to your .env file.");
     }
 
     const prompt = `You are a lease risk analyst. Return JSON in the exact format:
@@ -38,7 +38,7 @@ Only output valid JSON. Lease content:
 ${text.slice(0, 12000)}
 `.trim();
 
-    const response = await fetch(`${MODEL_URL}?key=${GOOGLE_API_KEY}`, {
+    const response = await fetch(`${MODEL_URL}?key=${apiKey}`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
