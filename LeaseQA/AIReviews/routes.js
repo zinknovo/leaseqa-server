@@ -3,12 +3,17 @@ import multer from "multer";
 import * as aiDao from "./dao.js";
 import { analyzeContractText } from "./analyzer.js";
 import { sendData, sendError, sendNotFound } from "../utils/responses.js";
+import { requireUser } from "../utils/session.js";
 
 const router = express.Router();
 const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 8 * 1024 * 1024 } });
 
 router.get("/", async (req, res) => {
-    const reviews = await aiDao.listAllReviews();
+    const currentUser = req.session?.currentUser;
+    if (!currentUser) {
+        return sendData(res, []);
+    }
+    const reviews = await aiDao.listReviewsForUser(currentUser._id);
     sendData(res, reviews);
 });
 
@@ -22,6 +27,7 @@ router.get("/:reviewId", async (req, res) => {
 
 router.post("/", upload.single("file"), async (req, res) => {
     const { contractText, contractType, relatedPostId } = req.body;
+    const currentUser = req.session?.currentUser;
 
     let textContent = contractText;
     if (!textContent && req.file) {
@@ -39,7 +45,7 @@ router.post("/", upload.single("file"), async (req, res) => {
     try {
         const aiResponse = await analyzeContractText(textContent);
         const review = await aiDao.createReview({
-            userId: null,
+            userId: currentUser?._id || null,
             contractType,
             relatedPostId,
             contractText: textContent,
@@ -55,6 +61,27 @@ router.post("/", upload.single("file"), async (req, res) => {
             status: 500,
         });
     }
+});
+
+router.delete("/:reviewId", async (req, res) => {
+    const currentUser = requireUser(req, res);
+    if (!currentUser) return;
+
+    const review = await aiDao.findReviewById(req.params.reviewId);
+    if (!review) {
+        return sendNotFound(res, "Review not found");
+    }
+
+    if (review.userId?.toString() !== currentUser._id.toString() && currentUser.role !== "admin") {
+        return sendError(res, {
+            code: "FORBIDDEN",
+            message: "You can only delete your own reviews.",
+            status: 403,
+        });
+    }
+
+    await aiDao.deleteReview(req.params.reviewId);
+    sendData(res, { message: "Review deleted" });
 });
 
 export default router;

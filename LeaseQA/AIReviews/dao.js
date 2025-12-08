@@ -1,14 +1,14 @@
 import model from "./model.js";
 
 export const listReviewsForUser = (userId) =>
-    model.find({userId});
+    model.find({userId}).sort({createdAt: -1});
 
 export const findReviewById = (id) =>
     model.findById(id);
 
 export const createReview = (payload) => {
     const review = {
-        userId: payload.userId,
+        userId: payload.userId || null,
         contractType: payload.contractType || null,
         contractText: payload.contractText,
         contractFileUrl: payload.contractFileUrl || null,
@@ -25,5 +25,5 @@ export const deleteReview = (id) =>
     model.findByIdAndDelete(id);
 
 export const listAllReviews = async () => {
-    return model.find().sort({ createdAt: -1 });
+    return model.find().sort({createdAt: -1});
 };
