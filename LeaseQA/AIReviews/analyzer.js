@@ -3,10 +3,15 @@ const MODEL_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemin
 
 const parseModelJson = (rawText) => {
     try {
-        // Strip markdown code blocks if present (e.g. ```json ... ```)
-        const cleanedText = rawText.replace(/```json/g, "").replace(/```/g, "").trim();
-        const parsed = JSON.parse(cleanedText);
-        return parsed && typeof parsed === "object" ? parsed : null;
+        // Find the first '{' and the last '}'
+        const firstOpen = rawText.indexOf('{');
+        const lastClose = rawText.lastIndexOf('}');
+
+        if (firstOpen !== -1 && lastClose !== -1 && lastClose > firstOpen) {
+            const jsonCandidate = rawText.substring(firstOpen, lastClose + 1);
+            return JSON.parse(jsonCandidate);
+        }
+        return null;
     } catch {
         return null;
     }
