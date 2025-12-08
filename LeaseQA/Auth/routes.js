@@ -46,7 +46,17 @@ router.post("/register", async (req, res) => {
     });
 
     setSessionUser(req, user);
-    return sendData(res, req.session.currentUser, 201);
+    req.session.save((err) => {
+        if (err) {
+            console.error("[Auth] Session save error:", err);
+            return sendError(res, {
+                code: "INTERNAL_ERROR",
+                message: "Failed to save session.",
+                status: 500
+            });
+        }
+        return sendData(res, req.session.currentUser, 201);
+    });
 });
 
 router.post("/login", async (req, res) => {
@@ -98,7 +108,17 @@ router.post("/login", async (req, res) => {
         req.session.currentUser = safeUser;
 
         console.log(`[Auth] Login successful. Session ID: ${req.sessionID}`);
-        return sendData(res, safeUser);
+        req.session.save((err) => {
+            if (err) {
+                console.error("[Auth] Session save error:", err);
+                return sendError(res, {
+                    code: "INTERNAL_ERROR",
+                    message: "Failed to save session.",
+                    status: 500
+                });
+            }
+            return sendData(res, safeUser);
+        });
     } catch (error) {
         console.error("[Auth] CRITICAL ERROR in login route:", error);
         return sendError(res, {
