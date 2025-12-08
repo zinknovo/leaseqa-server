@@ -36,16 +36,25 @@ router.post("/", upload.single("file"), async (req, res) => {
         });
     }
 
-    const aiResponse = analyzeContractText(textContent);
-    const review = await aiDao.createReview({
-        userId: null,
-        contractType,
-        relatedPostId,
-        contractText: textContent,
-        aiResponse,
-    });
+    try {
+        const aiResponse = await analyzeContractText(textContent);
+        const review = await aiDao.createReview({
+            userId: null,
+            contractType,
+            relatedPostId,
+            contractText: textContent,
+            aiResponse,
+        });
 
-    sendData(res, review, 201);
+        sendData(res, review, 201);
+    } catch (err) {
+        console.error("AI review failed", err);
+        sendError(res, {
+            code: "AI_REVIEW_ERROR",
+            message: err.message || "AI review failed",
+            status: 500,
+        });
+    }
 });
 
 export default router;

@@ -1,36 +1,58 @@
-const keywordBuckets = {
-    high: ["evict", "eviction", "immediate termination", "rent increase", "penalty"],
-    medium: ["late fee", "inspection", "notice", "arbitration"],
-    low: ["paint", "appliance", "quiet enjoyment"],
+const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
+const MODEL_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent";
+
+const parseModelJson = (rawText) => {
+    try {
+        const parsed = JSON.parse(rawText);
+        return parsed && typeof parsed === "object" ? parsed : null;
+    } catch {
+        return null;
+    }
 };
 
-const defaultRecommendations = [
-    "Document any risky clause in writing and request an addendum.",
-    "Ask for clear notice periods and escalation contacts.",
-    "Consult a licensed attorney before signing changes to rent or term.",
-];
+const normalizeResponse = (rawText) => {
+    const parsed = parseModelJson(rawText);
+    if (parsed?.riskLevels && parsed.summary) {
+        return parsed;
+    }
 
-const pickMatches = (text, keywords) =>
-    keywords
-        .filter((word) => text.toLowerCase().includes(word))
-        .map((word) => `Clause references "${word}" without tenant protections.`);
-
-const fallback = (label) => [`No explicit ${label} level issues were detected.`];
-
-export const analyzeContractText = (text) => {
-    const high = pickMatches(text, keywordBuckets.high);
-    const medium = pickMatches(text, keywordBuckets.medium);
-    const low = pickMatches(text, keywordBuckets.low);
     return {
-        summary:
-            high.length > 0
-                ? "Several clauses need immediate review."
-                : "No critical blockers detected. Review highlighted clauses.",
-        riskLevels: {
-            high: high.length ? high : fallback("high"),
-            medium: medium.length ? medium : fallback("medium"),
-            low: low.length ? low : fallback("low"),
-        },
-        recommendations: defaultRecommendations,
+        summary: rawText || "No summary returned.",
+        riskLevels: {high: [], medium: [], low: []},
+        recommendations: [],
     };
+};
+
+export const analyzeContractText = async (text) => {
+    if (!GOOGLE_API_KEY) {
+        throw new Error("Missing GOOGLE_API_KEY environment variable");
+    }
+
+    const prompt = `You are a lease risk analyst. Return JSON in the exact format:
+{
+  "summary": "one-line summary",
+  "riskLevels": { "high": ["..."], "medium": ["..."], "low": ["..."] },
+  "recommendations": ["..."]
+}
+Only output valid JSON. Lease content:
+${text.slice(0, 12000)}
+`.trim();
+
+    const response = await fetch(`${MODEL_URL}?key=${GOOGLE_API_KEY}`, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            contents: [{parts: [{text: prompt}]}],
+            generationConfig: {temperature: 0.3, maxOutputTokens: 512},
+        }),
+    });
+
+    const data = await response.json().catch(() => null);
+    if (!response.ok) {
+        const message = data?.error?.message || `Gemini request failed: ${response.status}`;
+        throw new Error(message);
+    }
+
+    const rawText = data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
+    return normalizeResponse(rawText);
 };
