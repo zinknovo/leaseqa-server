@@ -3,7 +3,12 @@ import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 import UsersModel from "../LeaseQA/Users/model.js";
 
-const DEMO_PASSWORD = "541551";
+const DEMO_PASSWORD = process.env.DEMO_PASSWORD;
+
+if (!DEMO_PASSWORD) {
+    console.error("DEMO_PASSWORD is required in .env");
+    process.exit(1);
+}
 const usersToSeed = [
     {
         email: "admin@leaseqa.dev",
@@ -29,7 +34,7 @@ async function main() {
 
     for (const user of usersToSeed) {
         await UsersModel.findOneAndUpdate(
-            {email: user.email},
+            { email: user.email },
             {
                 username: user.username,
                 email: user.email,
@@ -37,7 +42,7 @@ async function main() {
                 hashedPassword: hashed,
                 banned: false,
             },
-            {upsert: true, new: true}
+            { upsert: true, new: true }
         );
         console.log(`Seeded ${user.email} (${user.role}) with password ${DEMO_PASSWORD}`);
     }
